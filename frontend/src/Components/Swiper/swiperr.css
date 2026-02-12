@@ -1,0 +1,52 @@
+/* Swiper buttons positions */
+.slider-wrapper {
+  position: relative;
+}
+
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  background: var(--main-color);
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  transition: background 0.3s ease;
+}
+
+/* Default positions for LTR */
+.custom-prev {
+  left: -50px;
+}
+
+.custom-next {
+  right: -50px;
+}
+
+/* Flip buttons for RTL */
+.slider-wrapper.rtl .custom-prev {
+  left: auto;
+  right: -50px;
+}
+
+.slider-wrapper.rtl .custom-next {
+  right: auto;
+  left: -50px;
+}
+
+/* Hide buttons on small screens */
+@media screen and (max-width: 768px) {
+
+  .custom-prev,
+  .custom-next {
+    display: none;
+  }
+}

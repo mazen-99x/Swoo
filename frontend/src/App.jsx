@@ -1,0 +1,124 @@
+import { Route, Routes, useLocation } from "react-router";
+import Root from "./Root";
+import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
+import Products from "./Pages/Products/Products";
+import Contact from "./Pages/Contact/Contact";
+import Login from "./Pages/Login/Login";
+import Signup from "./Pages/Signup/Signup";
+import Cart from "./Pages/Cart/Cart";
+import Wishlist from "./Pages/WishList/Wishlist";
+import ProductDetails from "./Components/Product/ProductDetails";
+import { useEffect } from "react";
+import Profile from "./Pages/Profile/Profile";
+import Error from "./Pages/Error/Error";
+import { useTranslation } from "react-i18next";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import Users from "./Pages/Users/Users";
+import ProductControl from "./Pages/ProductControl/ProductControl";
+import ProtectPages from "./Components/ProtectPages";
+import Checkout from "./Pages/Checkout.jsx/Checkout";
+function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (i18n.language === "ar") {
+      document.body.dir = "rtl";
+    } else {
+      document.body.dir = "ltr";
+    }
+  }, [i18n.language]);
+  return (
+    <>
+      <Routes>
+        <Route element={<Root />}>
+          {/* User Pages */}
+
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="products" element={<Products />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="signin" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="product/id" element={<ProductDetails />} />
+          
+          <Route
+            path="Checkout"
+            element={
+              <ProtectPages allowedRoles={["user", "admin"]}>
+                <Checkout />
+              </ProtectPages>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <ProtectPages allowedRoles={["user", "admin"]}>
+                <Profile />
+              </ProtectPages>
+            }
+          />
+          <Route
+            path="cart"
+            element={
+              <ProtectPages allowedRoles={["user", "admin"]}>
+                <Cart />
+              </ProtectPages>
+            }
+          />
+          <Route
+            path="wishlist"
+            element={
+              <ProtectPages allowedRoles={["user", "admin"]}>
+                <Wishlist />
+              </ProtectPages>
+            }
+          />
+          {/* User Pages */}
+          {/* admin Pages */}
+
+          {/* Admin Pages */}
+          <Route
+            path="dashboard"
+            element={
+              <ProtectPages allowedRoles={["admin"]}>
+                <Dashboard />
+              </ProtectPages>
+            }
+          />
+          <Route
+            path="users"
+            element={
+              <ProtectPages allowedRoles={["admin"]}>
+                <Users />
+              </ProtectPages>
+            }
+          />
+          <Route
+            path="productcontrol"
+            element={
+              <ProtectPages allowedRoles={["admin"]}>
+                <ProductControl />
+              </ProtectPages>
+            }
+          />
+
+          {/* admin Pages */}
+        </Route>
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </>
+  );
+}
+
+export default App;

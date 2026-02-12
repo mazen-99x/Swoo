@@ -1,0 +1,444 @@
+{
+  "signup": {
+    "Register": "Register",
+    "Register to continue": "Register to continue",
+    "Name": "Name",
+    "Email Address": "Email Address",
+    "Password": "Password",
+    "Confirm Password": "Confirm Password",
+    "Already have an account?": "Already have an account?",
+    "Login": "Login"
+  },
+  "signin": {
+    "Welcome Back": "Welcome Back",
+    "Login to continue": "Login to continue",
+    "Email Address": "Email Address",
+    "Password": "Password",
+    "Login": "Login",
+    "New User?": "New User?",
+    "Sign up": "Sign up",
+    "Login illustration": "Login illustration"
+  },
+  "profile": {
+    "avatar": "avatar",
+    "name": "{{name}}",
+    "email": "{{email}}",
+    "sidebar": {
+      "Account info": "Account info",
+      "My order": "My order",
+      "My address": "My address",
+      "Change password": "Change password"
+    },
+    "accountInfo": "Account Info",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "emailAddress": "Email Address",
+    "phoneNumber": "Phone Number (Optional)",
+    "save": "Save"
+  },
+  "search": {
+    "placeholder": "Search..."
+  },
+  "nav": {
+    "Home": "Home",
+    "About": "About",
+    "Products": "Products",
+    "Contact": "Contact",
+    "Dashboard": "Dashboard",
+    "Users": "Users"
+  },
+  "signBtn": {
+    "Profile": "Profile",
+    "Log Out": "Log Out",
+    "Sign Up": "Sign Up",
+    "Sign In": "Sign In"
+  },
+  "product": {
+    "inStock": "In Stock",
+    "outOfStock": "Out of stock",
+    "addToCart": "Add to cart",
+    "save": "Save",
+    "Quick Share": "Quick Share",
+    "Scan to view on mobile": "Scan to view on mobile",
+    "reviews": "Reviews",
+    "Tax included. Shipping calculated at checkout.": "Tax included. Shipping calculated at checkout.",
+    "Ships": "Ships",
+    "Description": "Description",
+    "Quantity": "Quantity",
+    "BuyNow": "Buy Now",
+    "Minimum order quantity:": "Minimum order quantity:",
+    "Tags": "Tags",
+    "tabs": {
+      "details": "Details",
+      "reviews": "Reviews"
+    },
+    "SKU": "SKU",
+    "Warranty": "Warranty",
+    "Return Policy": "Return Policy",
+    "Shipping": "Shipping",
+    "Basedon": "Based on",
+    "Add": "Add"
+  },
+  "about": {
+    "hero": {
+      "purpose": "Our purpose is to",
+      "highlight": "enrich and enhance lives",
+      "through": "through technology",
+      "stats": {
+        "revenue": "Total revenue from 2001 – 2023",
+        "orders": "Orders delivered successfully every day",
+        "stores": "Stores and offices worldwide"
+      },
+      "description": {
+        "title": "We connect millions of buyers and sellers around the world, empowering people & creating economic opportunity for all.",
+        "text": "Within our markets, millions of people around the world connect, both online and offline, to make, sell and buy unique goods. We also offer a wide range of Seller Services and tools that help creative entrepreneurs start, manage & scale their businesses."
+      },
+      "button": "our showreel"
+    },
+    "company": {
+      "missionTitle": "Our mission and vision",
+      "missionText": "Nam maximus nunc a augue pulvinar, non euismod mauris tempus. Cras non elit magna molestie pellentesque eu in dui. Donec laoreet quis erat vitae finibus.",
+      "timelineTitle": "From a retail store to the global chain of stores",
+      "timeline": {
+        "t1997": "A small store located in Brooklyn, USA.",
+        "t1998": "It is a long established fact that a reader will be distracted.",
+        "t2000": "Lorem Ipsum is simply dummy text of the printing industry.",
+        "t2002": "Lorem Ipsum has been the industry’s standard dummy text.",
+        "t2004": "Contrary to popular belief, Lorem Ipsum is not random text.",
+        "t2005": "The point of using Lorem Ipsum is normal distribution.",
+        "t2014": "There are many variations of passages of Lorem Ipsum.",
+        "t2016": "Generators on the Internet tend to repeat.",
+        "t2020": "Lorem Ipsum comes from sections 1.10.32.",
+        "t2022": "Making this the first true generator on the Internet.",
+        "t2023": "There are many variations of passages available."
+      },
+      "leadershipTitle": "Leaderships",
+      "roles": {
+        "chairman": "Chairman",
+        "vicePresident": "Vice President",
+        "strategistDirector": "Strategist Director",
+        "ceo": "CEO"
+      }
+    },
+    "cards": {
+      "authentic": {
+        "title": "100% authentic products",
+        "description": "Swoo Tech Mart just distribute 100% authorized products & guarantee quality. Nulla porta nulla nec orci vulputate, id rutrum sapien varius."
+      },
+      "price": {
+        "title": "Affordable price",
+        "description": "We offer an affordable & competitive price with a lot of special promotions."
+      },
+      "delivery": {
+        "title": "Fast delivery",
+        "description": "Fast shipping with many delivery options. 100% guarantee that your goods always arrive on time and preserve quality."
+      }
+    }
+  },
+  "contact": {
+    "title": "Ready to work with us",
+    "subtitle": "Contact us for all your questions and opinions",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email address",
+    "phone": "Phone number (optional)",
+    "country": "Country / Region",
+    "subject": "Subject (optional)",
+    "message": "Message",
+    "messagePlaceholder": "Note about your order, e.g. special note for delivery",
+    "news": "I want to receive news and updates once in a while. By submitting, I agree to the",
+    "terms": "Terms & Conditions",
+    "button": "Send message",
+    "countries": {
+      "us": "United States (US)",
+      "uk": "United Kingdom (UK)",
+      "ca": "Canada"
+    },
+    "locations": {
+      "us": {
+        "title": "United States (Head Quarter)",
+        "address": "152 Thatcher Road St, Manhattan, 10463, US",
+        "phone": "(+025) 3886 25 16",
+        "email": "hello@swattechmart.com"
+      },
+      "uk": {
+        "title": "United Kingdom (Branch)",
+        "address": "12 Buckingham Rd, Thornthwaite, HG3 4TY, UK",
+        "phone": "(+718) 895-5350",
+        "email": "contact@swattechmart.co.uk"
+      }
+    }
+  },
+  "footer": {
+    "brandTitle": "SWOO - 1ST NYC TECH ONLINE MARKET",
+    "hotline": "Hotline 24/7",
+    "addressLine1": "257 Thatcher Road St, Brooklyn, Manhattan,",
+    "addressLine2": "NY 10092",
+    "email": "contact@Swootechmart.com",
+    "topCategories": "TOP CATEGORIES",
+    "categories": {
+      "laptops": "Laptops",
+      "pc": "PC & Computers",
+      "phones": "Cell Phones",
+      "tablets": "Tablets",
+      "gaming": "Gaming & VR",
+      "networks": "Networks",
+      "cameras": "Cameras",
+      "sounds": "Sounds",
+      "office": "Office"
+    },
+    "company": "COMPANY",
+    "companyLinks": {
+      "about": "About Swoo",
+      "contact": "Contact",
+      "career": "Career",
+      "blog": "Blog",
+      "sitemap": "Sitemap",
+      "stores": "Store Locations"
+    },
+    "helpCenter": "HELP CENTER",
+    "helpLinks": {
+      "customerService": "Customer Service",
+      "policy": "Policy",
+      "terms": "Terms & Conditions",
+      "track": "Track Order",
+      "faqs": "FAQs",
+      "account": "My Account",
+      "support": "Product Support"
+    },
+    "partner": "PARTNER",
+    "partnerLinks": {
+      "seller": "Become Seller",
+      "affiliate": "Affiliate",
+      "advertise": "Advertise",
+      "partnership": "Partnership"
+    },
+    "subscribeTitle": "SUBSCRIBE & GET",
+    "subscribeOff": "10% OFF",
+    "subscribeSubtitle": "FOR YOUR FIRST ORDER",
+    "emailPlaceholder": "Enter your email address",
+    "subscribe": "SUBSCRIBE",
+    "policyText": "By subscribing, you're accepted the our",
+    "policyLink": "Policy",
+    "copyright": "All Rights Reserved",
+    "payment": {
+      "paypal": "PayPal",
+      "mastercard": "MasterCard",
+      "visa": "VISA",
+      "stripe": "Stripe",
+      "klarna": "Klarna"
+    }
+  },
+  "home": {
+    "hero": {
+      "saleTag": "SALE 40% OFF",
+      "bannerTitle": "Noise Cancelling",
+      "bannerSubtitle": "Headphone",
+      "bannerDescription": [
+        "Boso Over-Ear Headphone",
+        "Wifi, Voice Assistant,",
+        "Low latency game mode"
+      ],
+      "bannerButton": "Buy Now",
+      "bottomCard1Title": "Sono Playgo 5 from",
+      "bottomCard1Price": "$569",
+      "bottomCard1Link": "Discover Now",
+      "bottomCard2Title": "Logitek Bluetooth",
+      "bottomCard2Highlight": "Keyboard",
+      "bottomCard2Subtitle": "Best for all device",
+      "categories": {
+        "furniture": "Furniture",
+        "groceries": "Groceries",
+        "home-decoration": "Home Decoration",
+        "kitchen-accessories": "Kitchen Accessories",
+        "laptops": "Laptops",
+        "mens-watches": "Mens Watches",
+        "mobile-accessories": "Mobile Accessories",
+        "motorcycle": "Motorcycle",
+        "skin-care": "Skin Care",
+        "smartphones": "Smartphones",
+        "sports-accessories": "Sports Accessories",
+        "sunglasses": "Sunglasses",
+        "tablets": "Tablets"
+      }
+    },
+    "brands": {
+      "featuredBrands": "Featured Brands",
+      "topCategories": "Top Categories",
+      "categories": {
+        "laptops": "Laptops",
+        "pc-gaming": "PC Gaming",
+        "headphones": "Headphones",
+        "monitors": "Monitors"
+      }
+    },
+    "seller": {
+      "filters": {
+        "popular": "Popular",
+        "newIn": "New in",
+        "bestSeller": "Best seller"
+      },
+      "viewAll": "View all"
+    },
+    "newBrand": {
+      "sectionTitle": "Brand new for you",
+      "newsItems": [
+        {
+          "head": "Zumac Steel Computer Case",
+          "title": "And an option to upgrade every three years",
+          "button": "Shop Now"
+        },
+        {
+          "head": "Summer Sale with Sale up to 50% OFF for Foam Gaming Chair",
+          "title": "Limited time offer. Hurry up",
+          "button": "Shop Now"
+        },
+        {
+          "head": "Summer Sale with Sale up to 50% OFF for Foam Gaming Chair.",
+          "title": "Limited time offer. Hurry up",
+          "button": "Shop Now"
+        },
+        {
+          "head": "iPed Pro Mini 6 - Powerful l in hand",
+          "title": "From $19.99/month for 36 months. $280.35 final payment due in month 37",
+          "button": "Shop Now"
+        }
+      ]
+    },
+    "phones": {
+      "sectionTitle": "Top Cellphones & Tablets"
+    },
+    "laptops": {
+      "sectionTitle": "Best Laptops & Computers"
+    },
+    "banners": {
+      "audios_cameras": {
+        "title": "Audios & Cameras",
+        "items": {
+          "speaker": "Speaker",
+          "dslr_camera": "DSLR Camera",
+          "earbuds": "Earbuds",
+          "microphone": "Microphone"
+        }
+      },
+      "gaming": {
+        "title": "Gaming",
+        "items": {
+          "monitors": "Monitors",
+          "chair": "Chair",
+          "controller": "Controller",
+          "keyboards": "Keyboards"
+        }
+      },
+      "office_equipments": {
+        "title": "Office Equipments",
+        "items": {
+          "printers": "Printers",
+          "network": "Network",
+          "security": "Security",
+          "projectors": "Projectors"
+        }
+      }
+    },
+    "text": {
+      "heading": "Swoo – #1 Online Marketplace for technology",
+      "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae posuere mi. Quisque iaculis dignissim scelerisque. Morbi condimentum sagittis leo vitae tempor. Suspendisse in dolor odio. Sed aliquet ac lacus ut luctus. Fusce mattis sollicitudin sem, id lobortis nibh ullamcorper a. Donec vehicula dolor et arcu consequat mattis. Fusce mattis nec nulla in scelerisque.",
+      "paragraph2": "Morbi pharetra sem mauris, nec aliquet ipsum vestibulum suscipit. Curabitur non euismod dui. Proin eget justo eu erat luctus placerat. Nam rhoncus ipsum ac enim faucibus, at consequat ante maximus. Vestibulum at nibh ac odio ultrices varius. Duis vitae libero mollis, lobortis ligula id, varius erat. Sed id odio dictum, laoreet enim ac, commodo magna. Praesent sodales porttitor maximus. Sed a lacus felis. Maecenas consectetur consequat orci scelerisque malesuada. Fusce vel orci eu tortor consequat mattis quis at ante. Class aptent taciti sociosqu ad litora torquent per conubi."
+    }
+  },
+  "cart": {
+    "product_name": "Product Name Goes Here",
+    "in_stock": "In stock",
+    "order_summary": "Order Summary",
+    "sub_total": "Sub Total:",
+    "shipping_estimate": "Shipping estimate:",
+    "tax_estimate": "Tax estimate:",
+    "order_total": "Order Total:",
+    "checkout": "CHECKOUT"
+  },
+  "wishlist": {
+    "title": "My Wishlist",
+    "clear_button": "Clear Wishlist"
+  },
+  "settings": {
+    "title": "Theme Settings",
+    "mainColor": "Main Color",
+    "changeMode": "Change Mode",
+    "closeTip": "Click the gear again to close"
+  },
+  "error404": {
+    "title": "Lost Your Way?",
+    "description": "Sorry, we can't find that page. You'll find lots to explore on the home page.",
+    "goHome": "Go Home",
+    "code": "Error Code: 404_NOT_FOUND"
+  },
+  "users": {
+    "title": "Users",
+    "add": "Add User",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role"
+  },
+  "common": {
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "cancel",
+    "save": "save",
+    "uploadImage": "Upload image",
+    "noImage": "No image selected"
+  },
+  "productControl": {
+    "title": "Products",
+    "add": "Add Product",
+    "product": "Product",
+    "brand": "Brand",
+    "price": "Price",
+    "stock": "Stock",
+    "image": "Product image"
+  },
+  "dashboard": {
+    "totalUsers": "Total Users",
+    "totalProducts": "Total Products",
+    "orders": "Orders",
+    "revenue": "Revenue",
+    "topUsers": "Top Users",
+    "topProducts": "Top Products",
+    "purchases": "purchases",
+    "sold": "sold"
+  },
+  "auth": {
+    "accessDenied": "Access denied. You don't have permission to view this page.",
+    "loginUser": "Switch to User",
+    "loginAdmin": "Switch to Admin",
+    "currentRole": "Current role",
+    "roles": {
+      "user": "User",
+      "admin": "Admin"
+    }
+  },
+  "checkout": {
+    "billing_details": "Billing Details",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "company_name": "Company Name (Optional)",
+    "country": "Country / Region",
+    "street_address": "Street Address",
+    "apartment": "Apartment, suite, unit, etc. (Optional)",
+    "city": "Town / City",
+    "state": "State / County",
+    "zip": "Zip Code",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "order_notes": "Order Notes (Optional)",
+    "direct_bank_transfer": "Direct Bank Transfer",
+    "cash_on_delivery": "Cash on Delivery",
+    "place_order": "Place Order",
+    "sub_total": "Sub Total:",
+    "shipping": "shipping",
+    "product": "Prdoucts",
+    "order_total": "Order Total:",
+    "what_is_paypal": "What is paypal",
+    "direct_bank_desc": "Please transfer directly to our bank account using the order number as a reference. Shipping will occur once the payment is confirmed."
+  }
+}

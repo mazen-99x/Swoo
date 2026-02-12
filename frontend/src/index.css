@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --main-color: #19b919;
+  --bg-color: #E2E4EB;
+  --white-color: #fff;
+  --gray-color: #F1F2F5;
+  --black-color: #000;
+  --dark-bg-color: #0d1721;
+  --dark-alt-color: #162436;
+  --dark-secondary-color: #0a121a;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+body {
+  font-family: 'Inter', 'Cairo', Courier, monospace;
+  background-color: var(--bg-color);
+  color: var(--black-color);
+  overflow-x: hidden;
+}
+
+body[dir="rtl"] {
+  font-family: "Cairo", "Tajawal", sans-serif;
+
+}
+
+body.dark {
+  background: var(--dark-bg-color);
+  color: var(--white-color);
+}
+
+/* a {
+  text-decoration: none;
+} */
+
+li {
+  list-style: none;
+}
+
+@keyframes spin360 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin360 2s linear infinite;
+}
+
+::selection {
+  background-color: var(--main-color);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 99px;
+}
+
+
+.dark::-webkit-scrollbar-track {
+  background-color: var(--dark-alt-color);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--gray-color);
+}
