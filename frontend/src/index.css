@@ -34,9 +34,36 @@ body.dark {
   color: var(--white-color);
 }
 
-/* a {
-  text-decoration: none;
-} */
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 5px;
+  width: 8px;
+
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+
+  border-radius: 5px;
+}
+
+
+
+.scrollbar-search::-webkit-scrollbar {
+  width: 5px
+}
+
+.dark .scrollbar-search::-webkit-scrollbar-track {
+  background-color: var(--dark-secondary-color);
+}
+
+.scrollbar-search::-webkit-scrollbar-track {
+  background-color: var(--gray-color);
+}
+
+.scrollbar-search::-webkit-scrollbar-thumb {
+
+  border-radius: 90px;
+}
 
 li {
   list-style: none;
@@ -53,7 +80,7 @@ li {
 }
 
 .animate-spin-slow {
-  animation: spin360 2s linear infinite;
+  animation: spin360 3s linear infinite;
 }
 
 ::selection {

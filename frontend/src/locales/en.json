@@ -7,7 +7,9 @@
     "Password": "Password",
     "Confirm Password": "Confirm Password",
     "Already have an account?": "Already have an account?",
-    "Login": "Login"
+    "Login": "Login",
+    "success_message": "Account created successfully!",
+    "redirecting_to_login": "Taking you to the login page..."
   },
   "signin": {
     "Welcome Back": "Welcome Back",
@@ -20,24 +22,57 @@
     "Login illustration": "Login illustration"
   },
   "profile": {
-    "avatar": "avatar",
-    "name": "{{name}}",
-    "email": "{{email}}",
-    "sidebar": {
-      "Account info": "Account info",
-      "My order": "My order",
-      "My address": "My address",
-      "Change password": "Change password"
-    },
-    "accountInfo": "Account Info",
-    "firstName": "First Name",
-    "lastName": "Last Name",
+    "myProfile": "My Profile",
+    "manageSettings": "Manage your account settings and preferences",
+    "userAvatar": "User Avatar",
+    "orders": "Orders",
+    "wishlist": "Wishlist",
+    "reviews": "Reviews",
+    "quickActions": "Quick Actions",
+    "viewOrders": "View Orders",
+    "securitySettings": "Security Settings",
+    "editProfile": "Edit Profile",
+    "fullName": "Full Name",
+    "enterName": "Enter your full name",
+    "nameError": "Min 4 characters required",
     "emailAddress": "Email Address",
-    "phoneNumber": "Phone Number (Optional)",
-    "save": "Save"
+    "saveChanges": "Save Changes",
+    "noChanges": "No changes detected",
+    "updateSuccess": "Name updated successfully",
+    "updateFailed": "Update failed",
+    "security": "Security",
+    "resetPassword": "Reset Password",
+    "newPassword": "New Password",
+    "enterNewPass": "Enter new password",
+    "passRequirements": "Password must contain:",
+    "reqLength": "6+ characters",
+    "reqUpper": "Uppercase (A-Z)",
+    "reqLower": "Lowercase (a-z)",
+    "reqNumber": "Number (0-9)",
+    "confirmPassword": "Confirm Password",
+    "confirmYourPass": "Confirm your password",
+    "passMismatch": "Passwords do not match",
+    "passMatch": "Passwords match ✓",
+    "saveNewPass": "Save New Password",
+    "passChanged": "Password changed successfully",
+    "passResetFailed": "Password reset failed",
+    "passSecure": "Your password is securely stored",
+    "deleteAccount": "Delete Account",
+    "deleteHeading": "Delete your account",
+    "deleteWarning": "Once deleted, all your data will be permanently removed",
+    "deleteConfirmMsg": "Are you sure you want to delete your account? This action cannot be undone.",
+    "deleteForever": "Delete Forever",
+    "accountDeletedSuccess": "Account deleted successfully"
   },
   "search": {
-    "placeholder": "Search..."
+    "placeholder": "Search...",
+    "resultsFor": "Search results for",
+    "noResultsFor": "No results found for",
+    "found": "Found",
+    "products": "products",
+    "tryDifferentKeywords": "Try using different keywords or check for typos.",
+    "page": "Page",
+    "of": "of"
   },
   "nav": {
     "Home": "Home",
@@ -56,18 +91,30 @@
   "product": {
     "inStock": "In Stock",
     "outOfStock": "Out of stock",
+    "lowStock": "Low Of Stock",
     "addToCart": "Add to cart",
+    "limitReached": "Limit Reached",
+    "filters": "Filters",
+    "perPage": "per page",
     "save": "Save",
     "Quick Share": "Quick Share",
     "Scan to view on mobile": "Scan to view on mobile",
     "reviews": "Reviews",
     "Tax included. Shipping calculated at checkout.": "Tax included. Shipping calculated at checkout.",
     "Ships": "Ships",
+    "inCart": "in Cart",
     "Description": "Description",
     "Quantity": "Quantity",
     "BuyNow": "Buy Now",
     "Minimum order quantity:": "Minimum order quantity:",
     "Tags": "Tags",
+    "addToWishlist": "Add to Wishlist",
+    "notifyMe": "Notify Me",
+    "onlyLeft": "Only {{count}} left!",
+    "preview": "Preview",
+    "page": "Page",
+    "of": "of",
+    "next": "Next",
     "tabs": {
       "details": "Details",
       "reviews": "Reviews"
@@ -78,6 +125,16 @@
     "Shipping": "Shipping",
     "Basedon": "Based on",
     "Add": "Add"
+  },
+  "filterPanel": {
+    "filters": "Filters",
+    "price": "Price",
+    "rating": "Rating",
+    "clearallfilters": "Clear All Filters",
+    "categories": "Categories",
+    "selected": "Selected",
+    "showLess": "Show Less",
+    "showMore": "Show More"
   },
   "about": {
     "hero": {
@@ -234,6 +291,7 @@
       "saleTag": "SALE 40% OFF",
       "bannerTitle": "Noise Cancelling",
       "bannerSubtitle": "Headphone",
+      "showMore": "show More",
       "bannerDescription": [
         "Boso Over-Ear Headphone",
         "Wifi, Voice Assistant,",
@@ -247,19 +305,30 @@
       "bottomCard2Highlight": "Keyboard",
       "bottomCard2Subtitle": "Best for all device",
       "categories": {
+        "beauty": "Beauty",
+        "fragrances": "Fragrances",
         "furniture": "Furniture",
         "groceries": "Groceries",
         "home-decoration": "Home Decoration",
         "kitchen-accessories": "Kitchen Accessories",
         "laptops": "Laptops",
-        "mens-watches": "Mens Watches",
+        "mens-shirts": "Men's Shirts",
+        "mens-shoes": "Men's Shoes",
+        "mens-watches": "Men's Watches",
         "mobile-accessories": "Mobile Accessories",
         "motorcycle": "Motorcycle",
         "skin-care": "Skin Care",
         "smartphones": "Smartphones",
         "sports-accessories": "Sports Accessories",
         "sunglasses": "Sunglasses",
-        "tablets": "Tablets"
+        "tablets": "Tablets",
+        "tops": "Tops",
+        "vehicle": "Vehicle",
+        "womens-bags": "Women's Bags",
+        "womens-dresses": "Women's Dresses",
+        "womens-jewellery": "Women's Jewellery",
+        "womens-shoes": "Women's Shoes",
+        "womens-watches": "Women's Watches"
       }
     },
     "brands": {
@@ -348,17 +417,41 @@
   },
   "cart": {
     "product_name": "Product Name Goes Here",
-    "in_stock": "In stock",
+    "empty": "EMPTY",
+    "desc": "Looks like you haven't added anything to your cart yet.",
+    "title": "Shopping Cart",
+    "item": "item",
+    "items": "items",
+    "clear_cart": "Clear Cart",
+    "in_stock": "In Stock",
+    "out_of_stock": "Out of Stock",
+    "limit_reached": "Limit 5 per order",
+    "subtotal": "Subtotal",
     "order_summary": "Order Summary",
-    "sub_total": "Sub Total:",
-    "shipping_estimate": "Shipping estimate:",
-    "tax_estimate": "Tax estimate:",
-    "order_total": "Order Total:",
-    "checkout": "CHECKOUT"
+    "sub_total": "Subtotal",
+    "shipping_estimate": "Shipping Estimate",
+    "tax_estimate": "Tax Estimate",
+    "order_total": "Order Total",
+    "checkout": "Checkout",
+    "continue_shopping": "Continue Shopping",
+    "loading": "Loading your cart...",
+    "clearTitle": "Empty Shopping Cart?",
+    "cleared_desc": "All items have been removed. Your shopping bag is now empty.",
+    "clearMessage": "Are you sure you want to remove all items from your cart? You will have to add them again if you change your mind.",
+    "clearConfirm": "Yes, empty cart",
+    "clearedSuccess": "Cart emptied successfully"
   },
   "wishlist": {
-    "title": "My Wishlist",
-    "clear_button": "Clear Wishlist"
+    "title": "My WishList",
+    "clear_button": "Clear Wishlist",
+    "empty": "YOUR WISHLIST IS EMPTY",
+    "desc": "Looks like you haven't added any favorites yet. Start exploring!",
+    "loading": "Loading your favorites...",
+    "clearTitle": "Clear Wishlist?",
+    "clearMessage": "Are you sure you want to remove all saved items? You won't be able to undo this action.",
+    "clearConfirm": "Yes, clear all",
+    "cleared_success": "Wishlist cleared",
+    "cleared_desc": "All items have been removed from your saved list."
   },
   "settings": {
     "title": "Theme Settings",
@@ -383,19 +476,35 @@
     "actions": "Actions",
     "edit": "Edit",
     "delete": "Delete",
+    "shopping": "Continue Shopping",
+    "browse": "or browse",
+    "products": "products",
     "cancel": "cancel",
+    "login": "login",
     "save": "save",
     "uploadImage": "Upload image",
-    "noImage": "No image selected"
+    "noImage": "No image selected",
+    "error": "Something went wrong. Please try again.",
+    "loading": "Searching",
+    "search": "Search...",
+    "logged_out": "Logged OUT",
+    "press": "Press ESC to cancel"
   },
   "productControl": {
-    "title": "Products",
+    "id": "ID",
+    "title": "Product Name",
     "add": "Add Product",
     "product": "Product",
     "brand": "Brand",
+    "rating": "Rating",
+    "discountPercentage": "Discount",
     "price": "Price",
     "stock": "Stock",
-    "image": "Product image"
+    "outOfStock": "Out of stock",
+    "description": "Description",
+    "image": "Product image",
+    "category": "choose Category",
+    "search": "search..."
   },
   "dashboard": {
     "totalUsers": "Total Users",
@@ -440,5 +549,19 @@
     "order_total": "Order Total:",
     "what_is_paypal": "What is paypal",
     "direct_bank_desc": "Please transfer directly to our bank account using the order number as a reference. Shipping will occur once the payment is confirmed."
+  },
+  "toast": {
+    "added_to": "Added to",
+    "removed_from": "Removed from"
+  },
+  "errors": {
+    "Name must be at least 4 characters": "Name must be at least 4 characters",
+    "Invalid email address": "Please enter a valid email address",
+    "Email already exists": "This email is already registered",
+    "Password strength requirement": "Must be 6+ chars with 1 Uppercase, 1 Lowercase, and 1 Number",
+    "Passwords do not match": "Passwords do not match"
+  },
+  "messages": {
+    "loginRequired": "Please login to access this feature!"
   }
 }

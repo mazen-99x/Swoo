@@ -21,7 +21,7 @@ const OutlineButton = ({
         
         flex items-center justify-center
         transition-all duration-300
-        ${disabled ? "bg-gray-200 border-gray-300 text-gray-500 cursor-not-allowed" : "hover:bg-(--main-color) hover:text-white cursor-pointer active:bg-(--main-color) active:text-(--white-color) "}
+        ${disabled ? "bg-gray-300 border-gray-500 dark:border-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed" : "hover:bg-(--main-color) hover:text-white cursor-pointer active:bg-(--main-color) active:text-(--white-color) "}
         
         ${className}
       `}

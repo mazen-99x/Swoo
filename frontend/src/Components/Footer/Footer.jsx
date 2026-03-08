@@ -187,7 +187,7 @@ const Footer = () => {
                 className="flex-1 py-2 outline-none bg-transparent"
               />
 
-              <button className="ml-2 border px-3 py-1 rounded hover:bg-(--main-color) hover:text-(--white-color) hover:border-(--main-color) transition duration-300 text-(--main-color) font-bold text-sm whitespace-nowrap">
+              <button className="ml-2 cursor-pointer border px-3 py-1 rounded hover:bg-(--main-color) hover:text-(--white-color) hover:border-(--main-color) transition duration-300 text-(--main-color) font-bold text-sm whitespace-nowrap">
                 {t("footer.subscribe")}
               </button>
             </div>

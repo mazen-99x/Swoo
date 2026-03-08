@@ -7,7 +7,9 @@
     "Password": "كلمة المرور",
     "Confirm Password": "تأكيد كلمة المرور",
     "Already have an account?": "هل لديك حساب بالفعل؟",
-    "Login": "تسجيل الدخول"
+    "Login": "تسجيل الدخول",
+    "success_message": "تم إنشاء الحساب بنجاح!",
+    "redirecting_to_login": "جاري تحويلك إلى صفحة تسجيل الدخول..."
   },
   "signin": {
     "Welcome Back": "مرحبًا بعودتك",
@@ -20,24 +22,57 @@
     "Login illustration": "رسم توضيحي لتسجيل الدخول"
   },
   "profile": {
-    "avatar": "الصورة الشخصية",
-    "name": "{{name}}",
-    "email": "{{email}}",
-    "sidebar": {
-      "Account info": "معلومات الحساب",
-      "My order": "طلباتي",
-      "My address": "عنواني",
-      "Change password": "تغيير كلمة المرور"
-    },
-    "accountInfo": "معلومات الحساب",
-    "firstName": "الاسم الأول",
-    "lastName": "اسم العائلة",
+    "myProfile": "ملفي الشخصي",
+    "manageSettings": "إدارة إعدادات حسابك وتفضيلاتك",
+    "userAvatar": "صورة المستخدم",
+    "orders": "الطلبات",
+    "wishlist": "قائمة الأمنيات",
+    "reviews": "المراجعات",
+    "quickActions": "إجراءات سريعة",
+    "viewOrders": "عرض الطلبات",
+    "securitySettings": "إعدادات الأمان",
+    "editProfile": "تعديل الملف الشخصي",
+    "fullName": "الاسم الكامل",
+    "enterName": "أدخل اسمك الكامل",
+    "nameError": "يجب ألا يقل عن 4 أحرف",
     "emailAddress": "البريد الإلكتروني",
-    "phoneNumber": "رقم الهاتف (اختياري)",
-    "save": "حفظ"
+    "saveChanges": "حفظ التغييرات",
+    "noChanges": "لم يتم اكتشاف تغييرات",
+    "updateSuccess": "تم تحديث الاسم بنجاح",
+    "updateFailed": "فشل التحديث",
+    "security": "الأمان",
+    "resetPassword": "تعيين كلمة المرور",
+    "newPassword": "كلمة المرور الجديدة",
+    "enterNewPass": "أدخل كلمة المرور الجديدة",
+    "passRequirements": "يجب أن تحتوي كلمة المرور على:",
+    "reqLength": "6 أحرف أو أكثر",
+    "reqUpper": "حرف كبير (A-Z)",
+    "reqLower": "حرف صغير (a-z)",
+    "reqNumber": "رقم (0-9)",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "confirmYourPass": "أكد كلمة المرور الخاصة بك",
+    "passMismatch": "كلمات المرور غير متطابقة",
+    "passMatch": "كلمات المرور متطابقة ✓",
+    "saveNewPass": "حفظ كلمة المرور الجديدة",
+    "passChanged": "تم تغيير كلمة المرور بنجاح",
+    "passResetFailed": "فشل تغيير كلمة المرور",
+    "passSecure": "كلمة المرور الخاصة بك مخزنة بشكل آمن",
+    "deleteAccount": "حذف الحساب",
+    "deleteHeading": "حذف حسابك",
+    "deleteWarning": "بمجرد الحذف، سيتم إزالة جميع بياناتك نهائياً",
+    "deleteConfirmMsg": "هل أنت متأكد أنك تريد حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء.",
+    "deleteForever": "حذف نهائي",
+    "accountDeletedSuccess": "تم حذف الحساب بنجاح"
   },
   "search": {
-    "placeholder": "ابحث..."
+    "placeholder": "ابحث...",
+    "resultsFor": "نتائج البحث عن",
+    "noResultsFor": "لم يتم العثور على نتائج لـ",
+    "found": "تم العثور على",
+    "products": "منتجات",
+    "tryDifferentKeywords": "جرب استخدام كلمات بحث مختلفة أو تأكد من الكتابة بشكل صحيح.",
+    "page": "صفحة",
+    "of": "من"
   },
   "nav": {
     "Home": "الرئيسية",
@@ -56,8 +91,13 @@
   "product": {
     "inStock": "متوفر",
     "outOfStock": "غير متوفر",
+    "filters": "الفلاتر",
+    "perPage": "لكل صفحة",
+    "lowStock": "المخزون منخفض",
     "addToCart": "أضف إلى السلة",
-    "save": "حفظ",
+    "limitReached": "تم الوصول للحد الأقصى",
+    "save": "خصم",
+    "inCart": "في السلة",
     "Quick Share": "مشاركة سريعة",
     "Scan to view on mobile": "امسح لعرضه على الجوال",
     "reviews": "المراجعات",
@@ -68,16 +108,33 @@
     "BuyNow": "اشترِ الآن",
     "Minimum order quantity:": "الحد الأدنى للطلب:",
     "Tags": "العلامات",
+    "onlyLeft": "باقي {{count}} فقط!",
+    "notifyMe": "أبلغني عند التوفر",
+    "preview": "السابق",
+    "page": "صفحة",
+    "of": "من",
+    "next": "التالي",
     "tabs": {
       "details": "تفاصيل",
       "reviews": "المراجعات"
     },
+    "addToWishlist": "أضف إلى المفضلة",
     "SKU": "رمز المنتج",
     "Warranty": "الضمان",
     "Return Policy": "سياسة الإرجاع",
     "Shipping": "الشحن",
     "Basedon": "مبني على",
     "Add": "أضف"
+  },
+  "filterPanel": {
+    "filters": "الفلاتر",
+    "price": "السعر",
+    "rating": "التقييم",
+    "clearallfilters": "مسح كل الفلاتر",
+    "categories": "الفئات",
+    "selected": "اختيار",
+    "showLess": "أقل",
+    "showMore": "المزيد"
   },
   "about": {
     "hero": {
@@ -234,6 +291,7 @@
       "saleTag": "خصم 40٪",
       "bannerTitle": "إلغاء الضوضاء",
       "bannerSubtitle": "سماعات",
+      "showMore": "عرض المزيد",
       "bannerDescription": [
         "سماعة Boso Over-Ear",
         "واي فاي، مساعد صوتي،",
@@ -247,19 +305,30 @@
       "bottomCard2Highlight": "Logitek Bluetooth",
       "bottomCard2Subtitle": "أفضل لجميع الأجهزة",
       "categories": {
-        "furniture": "أثاث",
-        "groceries": "بقالة",
+        "beauty": "مستحضرات التجميل",
+        "fragrances": "العطور",
+        "furniture": "الأثاث",
+        "groceries": "البقالة",
         "home-decoration": "ديكور المنزل",
         "kitchen-accessories": "إكسسوارات المطبخ",
-        "laptops": "أجهزة لابتوب",
+        "laptops": "أجهزة اللابتوب",
+        "mens-shirts": "قمصان رجالية",
+        "mens-shoes": "أحذية رجالية",
         "mens-watches": "ساعات رجالية",
-        "mobile-accessories": "إكسسوارات الجوال",
+        "mobile-accessories": "إكسسوارات الموبايل",
         "motorcycle": "دراجات نارية",
         "skin-care": "العناية بالبشرة",
-        "smartphones": "هواتف ذكية",
+        "smartphones": "الهواتف الذكية",
         "sports-accessories": "إكسسوارات رياضية",
         "sunglasses": "نظارات شمسية",
-        "tablets": "أجهزة لوحية"
+        "tablets": "أجهزة تابلت",
+        "tops": "بلوزات",
+        "vehicle": "مركبات",
+        "womens-bags": "حقائب نسائية",
+        "womens-dresses": "فساتين نسائية",
+        "womens-jewellery": "مجوهرات نسائية",
+        "womens-shoes": "أحذية نسائية",
+        "womens-watches": "ساعات نسائية"
       }
     },
     "brands": {
@@ -348,17 +417,43 @@
   },
   "cart": {
     "product_name": "اسم المنتج هنا",
-    "in_stock": "متوفر في المخزون",
+    "desc": "يبدو أنك لم تضف أي شيء إلى سلة التسوق الخاصة بك بعد.",
+    "browse": "أو تصفح",
+    "empty": "فارغ",
+    "products": "المنتجات",
+    "title": "سلة التسوق",
+    "item": "منتج",
+    "items": "منتجات",
+    "clear_cart": "مسح السلة",
+    "cleared_desc": "تمت إزالة جميع المنتجات. سلة التسوق الخاصة بك فارغة الآن.",
+    "in_stock": "متوفر",
+    "out_of_stock": "غير متوفر",
+    "limit_reached": "الحد الأقصى 5 قطع",
+    "subtotal": "المجموع الفرعي",
     "order_summary": "ملخص الطلب",
-    "sub_total": "المجموع الفرعي:",
-    "shipping_estimate": "تقدير الشحن:",
-    "tax_estimate": "تقدير الضريبة:",
-    "order_total": "إجمالي الطلب:",
-    "checkout": "الدفع"
+    "sub_total": "المجموع",
+    "shipping_estimate": "الشحن التقديري",
+    "tax_estimate": "الضريبة التقديرية",
+    "order_total": "الإجمالي",
+    "checkout": "الدفع",
+    "continue_shopping": "متابعة التسوق",
+    "loading": "جاري تحميل السلة...",
+    "clearTitle": "إفراغ سلة التسوق؟",
+    "clearMessage": "هل أنت متأكد أنك تريد إزالة جميع العناصر من السلة؟ سيتعين عليك إضافتها مرة أخرى إذا غيرت رأيك.",
+    "clearConfirm": "نعم، إفراغ السلة",
+    "clearedSuccess": "تم إفراغ السلة بنجاح"
   },
   "wishlist": {
     "title": "قائمتي المفضلة",
-    "clear_button": "مسح القائمة"
+    "clear_button": "مسح القائمة",
+    "empty": "قائمة الأمنيات فارغة",
+    "desc": "يبدو أنك لم تقم بإضافة أي منتجات مفضلة بعد. ابدأ الاستكشاف الآن!",
+    "loading": "جاري تحميل مفضلاتك...",
+    "clearTitle": "مسح قائمة الأمنيات؟",
+    "clearMessage": "هل أنت متأكد أنك تريد إزالة جميع العناصر المحفوظة؟ لا يمكنك التراجع عن هذا الإجراء.",
+    "clearConfirm": "نعم، مسح الكل",
+    "cleared_success": "تم مسح قائمة الأمنيات",
+    "cleared_desc": "تمت إزالة جميع العناصر من قائمة العناصر المحفوظة."
   },
   "settings": {
     "title": "إعدادات المظهر",
@@ -381,21 +476,36 @@
   },
   "common": {
     "actions": "الإجراءات",
+    "press": "اضغط على ESC للإلغاء",
     "edit": "تعديل",
     "delete": "حذف",
+    "browse": "أو تصفح",
+    "products": "المنتجات",
+    "shopping": "متابعة التسوق",
     "cancel": "إلغاء",
     "save": "حفظ",
     "uploadImage": "رفع صورة",
-    "noImage": "لم يتم اختيار صورة"
+    "noImage": "لم يتم اختيار صورة",
+    "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "loading": "جاري البحث",
+    "search": "بحث...",
+    "login": "تسجيل الدخول"
   },
   "productControl": {
-    "title": "المنتجات",
+    "id": "  المعرّف (ID)",
+    "title": "اسم المنتج",
     "add": "إضافة منتج",
     "product": "المنتج",
     "brand": "العلامة التجارية",
+    "rating": "التقييم",
+    "discountPercentage": "نسبة الخصم",
     "price": "السعر",
     "stock": "المخزون",
-    "image": "صورة المنتج"
+    "outOfStock": "غير متوفر",
+    "description": "الوصف",
+    "image": "صورة المنتج",
+    "category": "اختر الفئة",
+    "search": "...ابحث"
   },
   "dashboard": {
     "totalUsers": "إجمالي المستخدمين",
@@ -440,5 +550,19 @@
     "order_total": "إجمالي الطلب:",
     "what_is_paypal": "ما هو باي بال؟",
     "direct_bank_desc": "قم بالدفع مباشرة إلى حسابنا البنكي. يرجى استخدام رقم الطلب كمرجع لعملية الدفع. لن يتم شحن طلبك حتى يتم تأكيد استلام المبلغ في حسابنا."
+  },
+  "toast": {
+    "added_to": "تمت الإضافة إلى",
+    "removed_from": "تمت الإزالة من"
+  },
+  "errors": {
+    "Name must be at least 4 characters": "يجب أن يكون الاسم 4 أحرف على الأقل",
+    "Invalid email address": "الرجاء إدخال بريد إلكتروني صحيح",
+    "Email already exists": "هذا البريد الإلكتروني مسجل بالفعل",
+    "Password strength requirement": "يجب أن يكون 6 أحرف على الأقل، حرف كبير، حرف صغير، ورقم",
+    "Passwords do not match": "كلمات المرور غير متطابقة"
+  },
+  "messages": {
+    "loginRequired": "يرجى تسجيل الدخول للوصول إلى هذه الميزة!"
   }
 }

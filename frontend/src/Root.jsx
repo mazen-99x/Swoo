@@ -8,7 +8,7 @@ import Setting from "./Components/Setting";
 const Root = () => {
   return (
     <>
-      <header className="sticky top-0 z-50">
+      <header className="sticky top-0 z-40">
         <TopHeader />
         <BtmHeader />
         <SmallHeader />

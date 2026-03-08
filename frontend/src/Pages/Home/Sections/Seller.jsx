@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import Swiperr from "../../../Components/Swiper/Swiper";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n.js";
 
+import UseGetSeller from "../../../Hooks/UseGetSeller.jsx";
 const Seller = () => {
   const { t } = useTranslation();
   const isRTL = i18n.language === "ar";
-  const [data, setData] = useState([]);
+  const { data, isError, isLoading } = UseGetSeller();
   const filters = ["popular", "newIn", "bestSeller"];
   const [active, setActive] = useState("popular");
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const res = await fetch("http://localhost:5000/products");
-      const data = await res.json();
-      setData(data);
-    };
-    fetchProducts();
-  }, []);
-  console.log(data)
-  const filteredProducts = data.filter((product) => product.type === active);
+  const filteredProducts = data?.filter((product) => product.type === active);
   return (
     <div
       className={`bg-(--white-color) dark:bg-(--dark-alt-color) p-7.5 mt-5 rounded-xl ${isRTL ? "rtl" : "ltr"}`}
@@ -50,7 +42,11 @@ const Seller = () => {
       </ul>
 
       <div className="px-5 mt-6">
-        <Swiperr products={filteredProducts} />
+        <Swiperr
+          loading={isLoading}
+          error={isError}
+          products={filteredProducts}
+        />
       </div>
     </div>
   );

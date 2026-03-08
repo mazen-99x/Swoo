@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
 import { Link } from "react-router";
 import LangButton from "../LangButton";
+import { useSelector } from "react-redux";
 
 function HeadIcons() {
+  const { items } = useSelector((state) => state.cart);
+  const { wishItems } = useSelector((state) => state.wishlist);
+
+  // OPTION A: Count unique products
+  const cartCount = useMemo(() => {
+    return Object.keys(items).length;
+  }, [items]);
+  const wishlistCount = useMemo(() => {
+    return wishItems.length;
+  }, [wishItems]);
+
   return (
     <>
       <div className="headIcons flex max-md:flex-col max-md:justify-center items-center gap-7">
@@ -15,8 +27,8 @@ function HeadIcons() {
           <Link to={`/cart`}>
             <div className="icon relative cursor-pointer">
               <FaShoppingCart className="text-xl text-blue-500" />
-              <span className="absolute -right-2.5 bg-(--main-color)  text-white w-5 h-5 rounded-full leading-5 text-center -top-2.5">
-                0
+              <span className="absolute -right-3.5 bg-(--main-color) flex justify-center items-center  text-white w-6 h-6 rounded-full leading-5 text-center -top-3.5">
+                {cartCount}
               </span>
             </div>
           </Link>
@@ -24,8 +36,8 @@ function HeadIcons() {
           <Link to={`/wishlist`}>
             <div className="icon relative cursor-pointer">
               <FaHeart className="text-xl text-red-500   " />
-              <span className="absolute -right-2.5 bg-(--main-color)  text-white w-5 h-5 rounded-full leading-5 text-center -top-2.5">
-                0
+              <span className="absolute -right-3.5 bg-(--main-color) flex justify-center items-center  text-white w-6 h-6 rounded-full leading-5 text-center -top-3.5">
+                {wishlistCount}
               </span>
             </div>
           </Link>

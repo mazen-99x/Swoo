@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n.js";
 import OutlineButton from "../../../Components/OutlineButton.jsx";
@@ -7,7 +7,6 @@ const NewBrand = () => {
   const { t } = useTranslation();
   const isRTL = i18n.language === "ar";
 
-  // Fetch news items from i18n JSON
   const news = t("home.newBrand.newsItems", { returnObjects: true });
 
   return (
@@ -36,9 +35,10 @@ const NewBrand = () => {
 
             <p className="text-sm text-gray-500 dark:text-gray-400">{title}</p>
 
-            {/* Push button to bottom */}
             <div className="mt-auto pt-4">
-              <OutlineButton className="w-full">{button}</OutlineButton>
+              <Link to={"/products"}>
+                <OutlineButton className="w-full">{button}</OutlineButton>
+              </Link>
             </div>
           </div>
         ))}

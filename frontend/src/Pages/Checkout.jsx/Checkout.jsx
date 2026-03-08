@@ -2,10 +2,55 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import OutlineButton from "../../Components/OutlineButton";
 import FormInput from "../../Components/FormInput";
+import { useSelector } from "react-redux";
 
+import LoadingPage from "../../Components/LoadingPage";
+import { Link } from "react-router";
+import { useGetProductsByIdsQuery } from "../../Store/Actions/GetProductsId";
 const Checkout = () => {
   const { t } = useTranslation();
+  const slugify = (text) =>
+    text
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]+/g, "");
+  const { items } = useSelector((state) => state.cart);
+  const ids = Object.keys(items);
+  const { data: products, isLoading } = useGetProductsByIdsQuery(ids, {
+    skip: ids.length === 0,
+    keepPreviousData: true,
+  });
+  const subTotal =
+    products?.reduce((acc, product) => {
+      return acc + product.price * items[product.id];
+    }, 0) || 0;
 
+  const shippingEstimate = ids.length > 0 ? 5.0 : 0;
+  const taxEstimate = subTotal * 0.1;
+  const orderTotal = subTotal + shippingEstimate + taxEstimate;
+  if (isLoading) {
+    return (
+      <LoadingPage
+        text={`${t("cart.loading")}`}
+        icon={
+          <svg
+            className="w-32 h-32 text-(--main-color)/80"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.5}
+              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+            />
+          </svg>
+        }
+      />
+    );
+  }
   return (
     <div className="bg-(--white-color) dark:bg-(--dark-alt-color) py-10 my-6 px-4 rounded-xl">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -120,22 +165,54 @@ const Checkout = () => {
               </div>
 
               {/* Product */}
-              <div className="flex justify-between items-start py-4 border-b">
-                <div className="flex gap-3">
-                  <img
-                    src="https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/1.webp"
-                    alt="product"
-                    className="w-14 h-14 rounded object-cover"
-                  />
-                  <div className="text-sm">
-                    <p className="font-medium">
-                      Pinnapple Macbook Pro 2022 M1/ 512GB
-                    </p>
-                    <p className="text-gray-500">× 3</p>
-                  </div>
-                </div>
+              <div className="flex flex-nowrap overflow-x-auto gap-4 pb-4 scrollbar-hide">
+                {products?.map((product) => {
+                  const quantity = items[product.id] || 0;
+                  const itemTotal = Number(
+                    (product.price * quantity).toFixed(2),
+                  );
+                  return (
+                    <div
+                      key={product.id}
+                      className="flex-none w-64 p-3 bg-gray-50 dark:bg-(--dark-secondary-color) rounded-xl border border-gray-100 dark:border-gray-800"
+                    >
+                      <div className="flex gap-3">
+                        {/* Product Image */}
+                        <div className="relative shrink-0">
+                          <Link to={`/${slugify(product.title)}/${product.id}`}>
+                            <img
+                              src={product.thumbnail}
+                              alt={product.title}
+                              className="w-16 h-16 rounded-lg object-contain bg-white"
+                            />
+                          </Link>
+                          <span className="absolute -top-2 -right-2 bg-(--main-color) text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white dark:border-gray-900">
+                            {quantity}
+                          </span>
+                        </div>
 
-                <span className="text-sm font-medium">$1,746.50</span>
+                        {/* Product Details */}
+                        <div className="flex-1 min-w-0">
+                          <p
+                            title={product.title}
+                            className="font-medium text-sm text-gray-800 dark:text-white truncate"
+                          >
+                            {product.title}
+                          </p>
+                          <div className="flex justify-between items-center mt-2">
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                              ${product.price} <span className="mx-1">×</span>{" "}
+                              {quantity}
+                            </p>
+                            <span className="text-sm font-bold text-gray-900 dark:text-white">
+                              ${itemTotal}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Shipping */}
@@ -147,7 +224,7 @@ const Checkout = () => {
               {/* Total */}
               <div className="flex justify-between py-4 font-semibold text-base">
                 <span>{t("checkout.order_total")}</span>
-                <span className="text-green-600">$1,746.50</span>
+                <span className="text-green-600">{orderTotal.toFixed(2)}</span>
               </div>
 
               {/* Payment Methods */}
@@ -202,7 +279,6 @@ const Checkout = () => {
                 </label>
               </div>
 
-             
               <OutlineButton className="py-3 rounded-md mt-6 font-medium transition w-full">
                 {t("checkout.place_order")}
               </OutlineButton>

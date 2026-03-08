@@ -7,8 +7,9 @@ import "swiper/css/navigation";
 import "./swiperr.css";
 import Product from "../Product/Product";
 import ProductSkeleton from "../Skeletons/ProductSkeleton";
+import ProductError from "../Skeletons/ProductError";
 
-export default function Swiperr({ products }) {
+export default function Swiperr({ products, loading, error }) {
   const [isRTL, setIsRTL] = useState(i18n.language === "ar");
   const [swiperKey, setSwiperKey] = useState(0);
   const id = useId();
@@ -32,12 +33,12 @@ export default function Swiperr({ products }) {
     : { prevEl: `.${prevClass}`, nextEl: `.${nextClass}` };
 
   // Only show navigation buttons if more than 4 products
-  const showNavigation = products.length > 4;
+  const showNavigation = products?.length > 4;
 
   return (
     <div className={`slider-wrapper relative ${isRTL ? "rtl" : ""}`}>
       <Swiper
-        key={swiperKey + products.length} // force re-render when products change
+        key={swiperKey + products?.length} // force re-render when products change
         dir={isRTL ? "rtl" : "ltr"}
         spaceBetween={12}
         loop={true}
@@ -50,17 +51,23 @@ export default function Swiperr({ products }) {
           1024: { slidesPerView: 4 },
         }}
       >
-        {products.length > 0
-          ? products.map((product) => (
-              <SwiperSlide key={product.id}>
-                <Product product={product} />
-              </SwiperSlide>
-            ))
-          : Array.from({ length: 8 }, (_, i) => (
+        {loading
+          ? Array.from({ length: 8 }, (_, i) => (
               <SwiperSlide key={`skeleton-${i}`}>
                 <ProductSkeleton />
               </SwiperSlide>
-            ))}
+            ))
+          : error
+            ? Array.from({ length: 8 }, (_, i) => (
+                <SwiperSlide key={`error-${i}`}>
+                  <ProductError />
+                </SwiperSlide>
+              ))
+            : products?.map((product) => (
+                <SwiperSlide key={product.id}>
+                  <Product product={product} />
+                </SwiperSlide>
+              ))}
       </Swiper>
 
       {/* Render buttons only if enough slides */}

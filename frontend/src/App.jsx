@@ -12,15 +12,21 @@ import ProductDetails from "./Components/Product/ProductDetails";
 import { useEffect } from "react";
 import Profile from "./Pages/Profile/Profile";
 import Error from "./Pages/Error/Error";
-import { useTranslation } from "react-i18next";
+
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Users from "./Pages/Users/Users";
 import ProductControl from "./Pages/ProductControl/ProductControl";
 import ProtectPages from "./Components/ProtectPages";
 import Checkout from "./Pages/Checkout.jsx/Checkout";
+import Search from "./Pages/Search/Search";
+import { Toaster } from "sonner";
+
+import { useTranslation } from "react-i18next";
+import GoToTop from "./Components/GoToTop";
 function App() {
   const { pathname } = useLocation();
-
+  const { i18n } = useTranslation();
+  const isRTL = i18n.language === "ar";
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -28,15 +34,12 @@ function App() {
       behavior: "smooth",
     });
   }, [pathname]);
-  const { i18n } = useTranslation();
 
   useEffect(() => {
-    if (i18n.language === "ar") {
-      document.body.dir = "rtl";
-    } else {
-      document.body.dir = "ltr";
-    }
-  }, [i18n.language]);
+    // 3. Update the 'html' tag instead of 'body' for better Tailwind support
+    document.documentElement.dir = isRTL ? "rtl" : "ltr";
+    document.documentElement.lang = i18n.language;
+  }, [isRTL, i18n.language]);
   return (
     <>
       <Routes>
@@ -50,8 +53,9 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="signin" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="product/id" element={<ProductDetails />} />
-          
+          <Route path="/:name/:id" element={<ProductDetails />} />
+          <Route path="/search" element={<Search />} />
+
           <Route
             path="Checkout"
             element={
@@ -117,6 +121,13 @@ function App() {
         </Route>
         <Route path="*" element={<Error />} />
       </Routes>
+      <GoToTop />
+      <Toaster
+        position={isRTL ? "bottom-left" : "bottom-right"}
+        dir={isRTL ? "rtl" : "ltr"}
+        expand={false}
+        richColors
+      />
     </>
   );
 }

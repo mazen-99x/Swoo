@@ -10,7 +10,7 @@ import Banners from "./Sections/Banners";
 
 const Home = () => {
   return (
-    <div className="">
+    <>
       <Hero />
       <Brands />
       <Seller />
@@ -19,7 +19,7 @@ const Home = () => {
       <Laptops />
       <Banners />
       <Text />
-    </div>
+    </>
   );
 };
 

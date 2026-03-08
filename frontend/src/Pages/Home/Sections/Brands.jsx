@@ -15,7 +15,7 @@ const brandsImg = [
   "./assets/Brand/brand10.svg",
 ];
 
-// Array of top categories: label for display, value for future API
+
 const topCategories = [
   { img: "./assets/Category/category1.svg", value: "laptops" },
   { img: "./assets/Category/category2.svg", value: "pc-gaming" },

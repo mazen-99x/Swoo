@@ -29,8 +29,8 @@ import { useEffect, useRef, useState } from "react";
 import i18n from "../i18n";
 
 const languages = [
-  { code: "en", name: "English", flag: "./assets/Flags/usa.svg" },
-  { code: "ar", name: "العربية", flag: "./assets/Flags/egy.svg" },
+  { code: "en", name: "English", flag: "/assets/Flags/usa.svg" },
+  { code: "ar", name: "العربية", flag: "/assets/Flags/egy.svg" },
 ];
 
 function LangButton() {
