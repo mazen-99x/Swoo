@@ -238,7 +238,7 @@ const FilterPanel = ({
                       : "text-gray-700 dark:text-gray-300"
                   }`}
                 >
-                  {category.slug}
+                  {t(`categories.${category.slug}`)}
                 </span>
 
                 {/* Category count badge */}

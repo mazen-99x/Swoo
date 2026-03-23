@@ -9,11 +9,30 @@ export const authApi = createApi({
       query: (email) => `users?email=${email}`,
       providesTags: ["User"],
     }),
+    getUsers: builder.query({
+      query: () => "users",
+      providesTags: ["User"],
+    }),
     deleteAccount: builder.mutation({
       query: (id) => ({
-        url: `/users/${id}`,
+        url: `users/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["User"],
+    }),
+    getUserCount: builder.query({
+      query: () => "users", 
+      providesTags: ["User"],
+      transformResponse: (response) => {
+        return response.length;
+      },
+    }),
+    getProductCount: builder.query({
+      query: () => "products",
+
+      transformResponse: (response) => {
+        return response.length;
+      },
     }),
     registerUser: builder.mutation({
       query: (formData) => ({
@@ -22,25 +41,33 @@ export const authApi = createApi({
         body: {
           id: Date.now().toString(),
           ...formData,
+          role: "user",
+          createdAt: new Date().toISOString(),
         },
       }),
+      invalidatesTags: ["User"],
     }),
     updateProfile: builder.mutation({
       query: ({ id, name }) => ({
         url: `users/${id}`,
-        method: "PATCH", // PATCH only updates the fields you send
+        method: "PATCH",
         body: { name },
       }),
       invalidatesTags: ["User"],
     }),
-
-    // --- NEW: Change Password (Reset Simulation) ---
+    updateAdminUser: builder.mutation({
+      query: ({ id, ...updatedData }) => ({
+        url: `users/${id}`,
+        method: "PATCH",
+        body: updatedData,
+      }),
+      invalidatesTags: ["User"],
+    }),
     changePassword: builder.mutation({
-      
       query: ({ id, password }) => ({
         url: `users/${id}`,
         method: "PATCH",
-        body: { password }, 
+        body: { password },
       }),
       invalidatesTags: ["User"],
     }),
@@ -48,8 +75,12 @@ export const authApi = createApi({
 });
 export const {
   useRegisterUserMutation,
+  useGetUsersQuery,
   useLazyCheckUserEmailQuery,
+  useGetUserCountQuery,
+  useGetProductCountQuery,
   useDeleteAccountMutation,
   useUpdateProfileMutation,
   useChangePasswordMutation,
+  useUpdateAdminUserMutation,
 } = authApi;

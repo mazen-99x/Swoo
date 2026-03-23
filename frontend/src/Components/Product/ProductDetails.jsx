@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-
-  FaTimesCircle,
-
-} from "react-icons/fa";
+import { FaTimesCircle } from "react-icons/fa";
 
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router";
@@ -41,7 +37,7 @@ const ProductDetails = () => {
 
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect mobile screen
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -53,12 +49,12 @@ const ProductDetails = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Loading state
+  
   if (isLoading) {
     return <ProductDetailsSkeleton />;
   }
 
-  // Error state
+ 
   if (isError || !product) {
     return (
       <div className="min-h-screen bg-(--white-color) dark:bg-(--dark-alt-color) my-6 flex items-center justify-center">
@@ -84,7 +80,7 @@ const ProductDetails = () => {
           <div className="lg:w-3/5">
             <div className="bg-(--gray-color) dark:bg-(--dark-secondary-color) rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8">
               {/* Brand & Category - Desktop Only */}
-              <BrandSection product={product} />
+              <BrandSection product={product} translate={t} />
               {/* Title */}
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3">
                 {product.title}

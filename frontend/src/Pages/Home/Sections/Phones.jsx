@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import ProductSection from "../../../Components/ProductSection";
+import ProductSection from "../../../Components/Product/ProductSection";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 import {
-  FaStar,
   FaShareAlt,
   FaChevronLeft,
   FaChevronRight as FaChevronRightIcon,
 } from "react-icons/fa";
 import { RenderStars } from "./RenderStars";
+import ProductImageZoom from "../ProductImageZoom";
 const ImageSection = ({ product, isMobile, translate }) => {
   const [mainImage, setMainImage] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -56,28 +56,37 @@ const ImageSection = ({ product, isMobile, translate }) => {
         {/* Main Image with Mobile Carousel */}
         <div className="bg-(--gray-color) dark:bg-(--dark-secondary-color) rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-4">
           <div className="relative">
-            <img
-              src={
-                mainImage ||
-                product.images?.[0] ||
-                "https://via.placeholder.com/400"
-              }
-              alt={product.title}
-              className="w-full aspect-square sm:aspect-auto sm:h-96 object-contain rounded-lg sm:rounded-xl"
-            />
-
+            {!isMobile ? (
+              <ProductImageZoom
+                src={
+                  mainImage ||
+                  product.images?.[0] ||
+                  "https://via.placeholder.com/400"
+                }
+                alt={product.title}
+                
+                className="w-full aspect-square sm:aspect-auto sm:h-96 object-contain rounded-lg sm:rounded-xl"
+              />
+            ) : (
+              
+              <img
+                src={mainImage || product.images?.[0]}
+                className="w-full aspect-square object-contain rounded-lg"
+                alt={product.title}
+              />
+            )}
             {/* Mobile Carousel Controls */}
             {isMobile && product.images && product.images.length > 1 && (
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-lg"
+                  className="absolute cursor-pointer left-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-lg"
                 >
                   <FaChevronLeft />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-lg"
+                  className="absolute cursor-pointer right-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-lg"
                 >
                   <FaChevronRightIcon />
                 </button>

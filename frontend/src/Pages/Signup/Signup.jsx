@@ -1,73 +1,23 @@
-import { Link, useNavigate } from "react-router";
-import OutlineButton from "../../Components/OutlineButton";
+import { Link } from "react-router";
+import OutlineButton from "../../Components/Common/OutlineButton";
 import { useTranslation } from "react-i18next";
-import FormInput from "../../Components/FormInput";
-import { toast } from "sonner";
-import {
-  useLazyCheckUserEmailQuery,
-  useRegisterUserMutation,
-} from "../../Store/Actions/GetRegisiter";
-import { useForm } from "react-hook-form";
-import { setCredentials } from "../../Store/Auth/AuthSlice";
-import { useDispatch } from "react-redux";
+import FormInput from "../../Components/Common/FormInput";
+
+import useSignUp from "../../Hooks/useSignUp";
 
 const Signup = () => {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const [registerUser, { isLoading, error, reset: resetMutation }] =
-    useRegisterUserMutation();
-  const [triggerCheckEmail] = useLazyCheckUserEmailQuery();
-
   const {
+    errors,
+    isDirty,
     register,
     handleSubmit,
     getValues,
-    reset,
-    setError,
-    formState: { errors, isDirty },
-  } = useForm({
-    mode: "onSubmit",
-    reValidateMode: "onChange",
-  });
+    isLoading,
+    error,
+    onSubmit,
+  } = useSignUp();
 
-  const onSubmit = async (data) => {
-    try {
-      const { data: existingUsers } = await triggerCheckEmail(data.email);
-
-      if (existingUsers && existingUsers.length > 0) {
-        setError("email", {
-          type: "manual",
-          message: t("errors.Email already exists"),
-        });
-        return;
-      }
-
-      const { confirm_password: _, ...userData } = data;
-
-      // 2. SIMULATE TOKEN (Using stable response data)
-      const accessToken = btoa(`${data.email}-${data.name}`);
-
-      const finalData = { token: accessToken, ...userData };
-
-      const response = await registerUser(finalData).unwrap();
-      dispatch(
-        setCredentials({
-          user: response,
-          token: accessToken,
-        }),
-      );
-
-      reset();
-      resetMutation();
-
-      // 4. Navigate
-      navigate("/signin?message=account_created");
-    } catch (err) {
-      toast.error(t("errors.something_went_wrong"));
-      console.error(err);
-    }
-  };
+  const { t } = useTranslation();
 
   return (
     <div className="lg:min-h-[70vh] my-6 bg-(--white-color) dark:bg-(--dark-alt-color) flex items-center rounded-xl justify-center px-4 py-6">
@@ -94,7 +44,7 @@ const Signup = () => {
           )}
           <FormInput
             {...register("name", {
-              required: t("errors.Name is required"), // Add this
+              required: t("errors.Name is required"),
               minLength: {
                 value: 4,
                 message: t("errors.Name must be at least 4 characters"),
@@ -108,7 +58,7 @@ const Signup = () => {
           <FormInput
             type="email"
             {...register("email", {
-              required: t("errors.Email is required"), // Add this
+              required: t("errors.Email is required"),
               pattern: {
                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                 message: t("errors.Invalid email address"),
@@ -122,7 +72,7 @@ const Signup = () => {
           <FormInput
             type="password"
             {...register("password", {
-              required: t("errors.Password is required"), // Add this
+              required: t("errors.Password is required"),
               pattern: {
                 value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
                 message: t("errors.Password strength requirement"),

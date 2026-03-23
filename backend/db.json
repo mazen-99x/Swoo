@@ -98,7 +98,7 @@
       "price": 210.99,
       "discountPercentage": 17.41,
       "rating": 4.26,
-      "stock": 0,
+      "stock": 7,
       "type": "popular",
       "badge": "popular",
       "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/1.webp",
@@ -144,7 +144,7 @@
       "stock": 0
     },
     {
-      "title": "IPhone 17 Pro With",
+      "title": "IPhone 17 Pro max",
       "brand": "apple",
       "price": 1400,
       "discountPercentage": 4,
@@ -168,15 +168,131 @@
       "stock": 0,
       "description": "The Alfa Romeo Stelvio is being thoroughly rethought for its second generation, which was supposed to arrive in 2026 but has now been delayed until 2027 at the earliest.",
       "badge": "popular"
+    },
+    {
+      "thumbnail": "https://res.cloudinary.com/dbmjylfio/image/upload/v1773059247/products/k5daaia0mfsqbcpqnvt6.jpg",
+      "description": "Dior Sauvage Eau FORTE SAUVAGE EAU FORTE 60ml 100ml Sample Size 1ml PARFUM Perfume Fragrance Non-Alcohol Free Alcohol Free ALCOHOL FREE Water Power Gift Gift Clutch with Shopper Bag (1ml does not",
+      "price": 240,
+      "brand": "dior",
+      "title": "Sauvage ",
+      "type": "popular",
+      "rating": 4.5,
+      "stock": 0,
+      "id": "590",
+      "discountPercentage": 7,
+      "badge": "popular"
+    },
+    {
+      "thumbnail": "https://res.cloudinary.com/dbmjylfio/image/upload/v1773232945/zxpxjatrneevrsjid9ws.webp",
+      "id": "6666",
+      "brand": "shein",
+      "price": 50,
+      "discountPercentage": 5,
+      "description": "great clothe to have for winter",
+      "title": "brooklyn T-shirt",
+      "type": "popular",
+      "rating": 4.3,
+      "stock": 0,
+      "badge": "popular"
     }
   ],
   "users": [
     {
-      "id": "1772623742155",
-      "name": "mazeneeee",
-      "email": "mazenmohamed.95x@gmail.com",
-      "password": "Mazen111",
-      "confirm_password": "Mazen12"
+      "id": "1773230749084",
+      "name": "admin",
+      "role": "admin",
+      "email": "admin@gmail.com",
+      "password": "Admin1",
+      "createdAt": "2026-03-11T12:05:49.084Z"
+    },
+    {
+      "id": "1773232441409",
+      "name": "mazen",
+      "email": "mazen@gmail.com",
+      "role": "user",
+      "password": "Mezo11",
+      "createdAt": "2026-03-11T12:34:01.409Z",
+      "wishlist": [
+        128
+      ],
+      "cart": [
+        {
+          "id": 2,
+          "quantity": 4
+        },
+        {
+          "id": 80,
+          "quantity": 4
+        },
+        {
+          "id": 127,
+          "quantity": 1
+        },
+        {
+          "id": 128,
+          "quantity": 1
+        },
+        {
+          "id": 136,
+          "quantity": 4
+        }
+      ]
+    },
+    {
+      "id": "1773577568304",
+      "name": "user",
+      "role": "user",
+      "email": "user@gmail.com",
+      "password": "User11",
+      "createdAt": "2026-03-15T12:26:08.304Z",
+      "cart": [
+        {
+          "id": 7,
+          "quantity": 1
+        },
+        {
+          "id": 78,
+          "quantity": 1
+        },
+        {
+          "id": 79,
+          "quantity": 1
+        },
+        {
+          "id": 80,
+          "quantity": 3
+        },
+        {
+          "id": 122,
+          "quantity": 2
+        },
+        {
+          "id": 123,
+          "quantity": 1
+        },
+        {
+          "id": 124,
+          "quantity": 1
+        },
+        {
+          "id": 136,
+          "quantity": 1
+        }
+      ],
+      "wishlist": [
+        136,
+        3,
+        5,
+        6,
+        7,
+        2,
+        80,
+        123,
+        128,
+        79,
+        78,
+        122
+      ]
     }
   ]
 }

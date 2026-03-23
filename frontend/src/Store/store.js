@@ -9,24 +9,37 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import storage from "redux-persist/lib/storage";
 
 import cartReducer from "./Cart/CartSlice.jsx";
 import wishlistReducer from "./Wishlist/WishlistSlice.jsx";
 import authReducer from "./Auth/AuthSlice.jsx";
 import { productApi } from "./Actions/GetProductsId.js";
 import { authApi } from "./Actions/GetRegisiter.js";
+import { userApi } from "./Actions/GetUserProducts.js";
 
-// 1. Combine your reducers
-const rootReducer = combineReducers({
+
+const appReducer = combineReducers({
   cart: cartReducer,
   wishlist: wishlistReducer,
-  auth:authReducer,
+  auth: authReducer,
   [productApi.reducerPath]: productApi.reducer,
   [authApi.reducerPath]: authApi.reducer,
+  [userApi.reducerPath]: userApi.reducer,
 });
 
-// 2. Persistence Configuration
+
+const rootReducer = (state, action) => {
+
+  if (action.type === "auth/logout") {
+
+    state = undefined;
+
+    storage.removeItem("persist:root");
+  }
+  return appReducer(state, action);
+};
+
 const persistConfig = {
   key: "root",
   version: 1,
@@ -34,18 +47,17 @@ const persistConfig = {
   whitelist: ["cart", "wishlist", "auth"],
 };
 
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// 3. Configure Store
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        // Ignore redux-persist actions to avoid console errors
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(productApi.middleware, authApi.middleware),
+    }).concat(productApi.middleware, userApi.middleware, authApi.middleware),
 });
 
 export const persistor = persistStore(store);

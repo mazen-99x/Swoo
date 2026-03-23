@@ -8,16 +8,25 @@ const authSlice = createSlice({
   },
   reducers: {
     setCredentials: (state, action) => {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+      const { user, token } = action.payload;
+
+      const { password: _password, ...userWithoutPassword } = user;
+
+      state.user = userWithoutPassword;
+      state.token = token;
     },
     logout: (state) => {
       state.user = null;
       state.token = null;
     },
     updateUser: (state, action) => {
-      if (state.user) {
-        state.user.name = action.payload; // Update just the name
+      if (!state.user) return;
+
+      if (typeof action.payload === "string") {
+        state.user.name = action.payload;
+      } else {
+        const { password: _password, ...safeData } = action.payload;
+        state.user = { ...state.user, ...safeData };
       }
     },
   },

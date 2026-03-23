@@ -16,34 +16,32 @@ export default function Swiperr({ products, loading, error }) {
   const nextClass = `custom-next-${id}`;
   const prevClass = `custom-prev-${id}`;
 
-  // Update RTL and re-render on language change
   useEffect(() => {
     const handleLanguageChange = () => {
       setIsRTL(i18n.language === "ar");
-      setSwiperKey((prev) => prev + 1); // Force re-render
+      setSwiperKey((prev) => prev + 1); 
     };
 
     i18n.on("languageChanged", handleLanguageChange);
     return () => i18n.off("languageChanged", handleLanguageChange);
   }, []);
 
-  // Navigation config
   const navigationConfig = isRTL
     ? { prevEl: `.${nextClass}`, nextEl: `.${prevClass}` }
     : { prevEl: `.${prevClass}`, nextEl: `.${nextClass}` };
 
-  // Only show navigation buttons if more than 4 products
+
   const showNavigation = products?.length > 4;
 
   return (
     <div className={`slider-wrapper relative ${isRTL ? "rtl" : ""}`}>
       <Swiper
-        key={swiperKey + products?.length} // force re-render when products change
+        key={swiperKey + products?.length}
         dir={isRTL ? "rtl" : "ltr"}
         spaceBetween={12}
         loop={true}
         modules={[Navigation, Autoplay]}
-        navigation={showNavigation ? navigationConfig : false} // disable navigation if not enough slides
+        navigation={showNavigation ? navigationConfig : false} 
         breakpoints={{
           0: { slidesPerView: 1.2 },
           480: { slidesPerView: 1.5 },

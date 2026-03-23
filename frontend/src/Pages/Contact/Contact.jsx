@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useTranslation } from "react-i18next";
-import OutlineButton from "../../Components/OutlineButton";
-import FormInput from "../../Components/FormInput";
+
 import {
   FaTwitter,
   FaFacebookF,
@@ -10,6 +9,8 @@ import {
   FaYoutube,
   FaPinterestP,
 } from "react-icons/fa";
+import FormInput from "../../Components/Common/FormInput";
+import OutlineButton from "../../Components/Common/OutlineButton";
 
 const socialIcons = [
   { id: 1, icon: FaTwitter, href: "https://twitter.com" },

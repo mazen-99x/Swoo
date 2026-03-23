@@ -13,11 +13,11 @@ export const productApi = createApi({
             ids.map((id) => fetchWithBaseQuery(`products/${id}`)),
           )) || [];
 
-        // Check if any fetch failed
+        
         const error = results.find((res) => res.error);
         if (error) return { error: error.error };
 
-        // Return the combined data
+       
         return { data: results.map((res) => res.data) };
       },
     }),

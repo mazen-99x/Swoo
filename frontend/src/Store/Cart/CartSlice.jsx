@@ -26,7 +26,19 @@ const CartSlice = createSlice({
     clearCart: (state) => {
       state.items = {};
     },
+    hydrateCart: (state, action) => {
+      if (Array.isArray(action.payload)) {
+        const newItems = {};
+        action.payload.forEach((item) => {
+          if (item?.id) newItems[item.id] = item.quantity;
+        });
+        state.items = newItems;
+      } else if (action.payload && typeof action.payload === "object") {
+        state.items = action.payload;
+      }
+    },
   },
 });
-export const { addToCart, removeFromCart, clearCart } = CartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, hydrateCart } =
+  CartSlice.actions;
 export default CartSlice.reducer;

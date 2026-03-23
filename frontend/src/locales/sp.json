@@ -1,0 +1,654 @@
+{
+  "signup": {
+    "Register": "Registrarse",
+    "Register to continue": "Regístrate para continuar",
+    "Name": "Nombre",
+    "Email Address": "Correo Electrónico",
+    "Password": "Contraseña",
+    "Confirm Password": "Confirmar Contraseña",
+    "Already have an account?": "¿Ya tienes una cuenta?",
+    "Login": "Iniciar Sesión",
+    "success_message": "¡Cuenta creada exitosamente!",
+    "redirecting_to_login": "Te redirigimos a la página de inicio de sesión..."
+  },
+  "signin": {
+    "welcome_back": "¡Bienvenido {{name}}! Has iniciado sesión correctamente.",
+    "Welcome Back": "Bienvenido de Nuevo",
+    "Login to continue": "Inicia sesión para continuar",
+    "Email Address": "Correo Electrónico",
+    "Password": "Contraseña",
+    "Login": "Iniciar Sesión",
+    "New User?": "¿Nuevo Usuario?",
+    "Sign up": "Regístrate",
+    "Login illustration": "Ilustración de inicio de sesión"
+  },
+  "profile": {
+    "myProfile": "Mi Perfil",
+    "sameAsOld": "La nueva contraseña no puede ser igual a la actual",
+    "manageSettings": "Administra la configuración y preferencias de tu cuenta",
+    "userAvatar": "Avatar de Usuario",
+    "orders": "Pedidos",
+    "wishlist": "Lista de Deseos",
+    "reviews": "Reseñas",
+    "quickActions": "Acciones Rápidas",
+    "viewOrders": "Ver Pedidos",
+    "securitySettings": "Configuración de Seguridad",
+    "editProfile": "Editar Perfil",
+    "fullName": "Nombre Completo",
+    "enterName": "Ingresa tu nombre completo",
+    "nameError": "Mínimo 4 caracteres requeridos",
+    "emailAddress": "Correo Electrónico",
+    "saveChanges": "Guardar Cambios",
+    "noChanges": "No se detectaron cambios",
+    "updateSuccess": "Nombre actualizado exitosamente",
+    "updateFailed": "Error al actualizar",
+    "security": "Seguridad",
+    "resetPassword": "Restablecer Contraseña",
+    "newPassword": "Nueva Contraseña",
+    "enterNewPass": "Ingresa nueva contraseña",
+    "passRequirements": "La contraseña debe contener:",
+    "reqLength": "6+ caracteres",
+    "reqUpper": "Mayúscula (A-Z)",
+    "reqLower": "Minúscula (a-z)",
+    "reqNumber": "Número (0-9)",
+    "confirmPassword": "Confirmar Contraseña",
+    "confirmYourPass": "Confirma tu contraseña",
+    "passMismatch": "Las contraseñas no coinciden",
+    "passMatch": "Las contraseñas coinciden ✓",
+    "saveNewPass": "Guardar Nueva Contraseña",
+    "passChanged": "Contraseña cambiada exitosamente",
+    "passResetFailed": "Error al restablecer contraseña",
+    "passSecure": "Tu contraseña está almacenada de forma segura",
+    "deleteAccount": "Eliminar Cuenta",
+    "deleteHeading": "Eliminar tu cuenta",
+    "deleteWarning": "Una vez eliminada, todos tus datos serán eliminados permanentemente",
+    "deleteConfirmMsg": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.",
+    "deleteForever": "Eliminar Permanentemente",
+    "accountDeletedSuccess": "Cuenta eliminada exitosamente"
+  },
+  "search": {
+    "placeholder": "Buscar...",
+    "noProducts": "No se encontraron productos",
+    "tryDifferentKeywords": "Intenta ajustar tus filtros o usar palabras clave diferentes para encontrar lo que buscas.",
+    "resultsFor": "Resultados de búsqueda para",
+    "noResultsFor": "No se encontraron resultados para",
+    "found": "Encontrado",
+    "products": "productos",
+    "adjustFilters": "Intenta ajustar tus filtros o términos de búsqueda",
+    "page": "Página",
+    "showing": "Mostrando",
+    "of": "de",
+    "results": "resultados"
+  },
+  "nav": {
+    "Home": "Inicio",
+    "About": "Nosotros",
+    "Products": "Productos",
+    "Contact": "Contacto",
+    "Dashboard": "Panel",
+    "Users": "Usuarios"
+  },
+  "signBtn": {
+    "Profile": "Perfil",
+    "Log Out": "Cerrar Sesión",
+    "Sign Up": "Registrarse",
+    "Sign In": "Iniciar Sesión",
+    "logoutTitle": "¿Cerrar sesión?",
+    "logoutMessage": "¿Estás seguro de que quieres cerrar tu sesión?",
+    "confirmLogout": "Sí, Cerrar Sesión",
+    "cancel": "Cancelar"
+  },
+  "product": {
+    "inStock": "En Stock",
+    "outOfStock": "Agotado",
+    "lowStock": "Pocas Unidades",
+    "addToCart": "Añadir al Carrito",
+    "limitReached": "Límite Alcanzado",
+    "filters": "Filtros",
+    "perPage": "por página",
+    "show_less": "Mostrar menos",
+    "read_more": "Leer más",
+    "save": "Ahorrar",
+    "deleteTitle": "Eliminar Producto",
+    "deleteMessage": "¿Estás seguro de que quieres eliminar este producto? Esta acción no se puede deshacer.",
+    "confirmDelete": "Eliminar Ahora",
+    "Quick Share": "Compartir Rápido",
+    "Scan to view on mobile": "Escanea para ver en móvil",
+    "reviews": "Reseñas",
+    "Tax included. Shipping calculated at checkout.": "Impuestos incluidos. Envío calculado al finalizar.",
+    "Ships": "Envío",
+    "inCart": "en Carrito",
+    "Description": "Descripción",
+    "Quantity": "Cantidad",
+    "BuyNow": "Comprar Ahora",
+    "Minimum order quantity:": "Cantidad mínima de pedido:",
+    "Tags": "Etiquetas",
+    "addToWishlist": "Añadir a Lista de Deseos",
+    "notifyMe": "Notificarme",
+    "onlyLeft": "¡Solo {{count}} disponibles!",
+    "preview": "Vista Previa",
+    "page": "Página",
+    "of": "de",
+    "next": "Siguiente",
+    "tabs": {
+      "details": "Detalles",
+      "reviews": "Comentarios"
+    },
+    "SKU": "SKU",
+    "Warranty": "Garantía",
+    "Return Policy": "Política de Devolución",
+    "Shipping": "Envío",
+    "Basedon": "Basado en",
+    "Add": "Añadir"
+  },
+  "filterPanel": {
+    "filters": "Filtros",
+    "price": "Precio",
+    "rating": "Valoración",
+    "clearallfilters": "Borrar Todos los Filtros",
+    "categories": "Categorías",
+    "selected": "Seleccionado",
+    "showLess": "Mostrar Menos",
+    "showMore": "Mostrar Más"
+  },
+  "about": {
+    "hero": {
+      "purpose": "Nuestro propósito es",
+      "highlight": "enriquecer y mejorar vidas",
+      "through": "a través de la tecnología",
+      "stats": {
+        "revenue": "Ingresos totales de 2001 a 2023",
+        "orders": "Pedidos entregados exitosamente cada día",
+        "stores": "Tiendas y oficinas en todo el mundo"
+      },
+      "description": {
+        "title": "Conectamos a millones de compradores y vendedores en todo el mundo, empoderando a las personas y creando oportunidades económicas para todos.",
+        "text": "En nuestros mercados, millones de personas en todo el mundo se conectan, tanto en línea como fuera de línea, para crear, vender y comprar productos únicos. También ofrecemos una amplia gama de Servicios para Vendedores y herramientas que ayudan a emprendedores creativos a iniciar, administrar y escalar sus negocios."
+      },
+      "button": "nuestro reel"
+    },
+    "company": {
+      "missionTitle": "Nuestra misión y visión",
+      "missionText": "Nam maximus nunc a augue pulvinar, non euismod mauris tempus. Cras non elit magna molestie pellentesque eu in dui. Donec laoreet quis erat vitae finibus.",
+      "timelineTitle": "De una tienda minorista a la cadena global de tiendas",
+      "timeline": {
+        "t1997": "Una pequeña tienda ubicada en Brooklyn, EE. UU.",
+        "t1998": "Es un hecho establecido que un lector se distraerá.",
+        "t2000": "Lorem Ipsum es simplemente texto de relleno de la industria.",
+        "t2002": "Lorem Ipsum ha sido el texto de relleno estándar de la industria.",
+        "t2004": "Contrario a la creencia popular, Lorem Ipsum no es texto aleatorio.",
+        "t2005": "El punto de usar Lorem Ipsum es que tiene una distribución normal.",
+        "t2014": "Hay muchas variaciones de pasajes de Lorem Ipsum.",
+        "t2016": "Los generadores en Internet tienden a repetir.",
+        "t2020": "Lorem Ipsum proviene de las secciones 1.10.32.",
+        "t2022": "Haciendo de este el primer generador verdadero en Internet.",
+        "t2023": "Hay muchas variaciones de pasajes disponibles."
+      },
+      "leadershipTitle": "Liderazgo",
+      "roles": {
+        "chairman": "Presidente",
+        "vicePresident": "Vicepresidente",
+        "strategistDirector": "Director Estratégico",
+        "ceo": "Director Ejecutivo"
+      }
+    },
+    "cards": {
+      "authentic": {
+        "title": "Productos 100% auténticos",
+        "description": "Swoo Tech Mart distribuye productos 100% autorizados y garantiza calidad. Nulla porta nulla nec orci vulputate, id rutrum sapien varius."
+      },
+      "price": {
+        "title": "Precio accesible",
+        "description": "Ofrecemos precios accesibles y competitivos con muchas promociones especiales."
+      },
+      "delivery": {
+        "title": "Entrega rápida",
+        "description": "Envío rápido con muchas opciones de entrega. Garantía 100% de que tus productos siempre llegarán a tiempo y conservarán su calidad."
+      }
+    }
+  },
+  "contact": {
+    "title": "Listos para trabajar con nosotros",
+    "subtitle": "Contáctanos para todas tus preguntas y opiniones",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electrónico",
+    "phone": "Teléfono (opcional)",
+    "country": "País / Región",
+    "subject": "Asunto (opcional)",
+    "message": "Mensaje",
+    "messagePlaceholder": "Nota sobre tu pedido, ej. nota especial para entrega",
+    "news": "Quiero recibir noticias y actualizaciones de vez en cuando. Al enviar, acepto los",
+    "terms": "Términos y Condiciones",
+    "button": "Enviar mensaje",
+    "countries": {
+      "us": "Estados Unidos (EE. UU.)",
+      "uk": "Reino Unido (RU)",
+      "ca": "Canadá"
+    },
+    "locations": {
+      "us": {
+        "title": "Estados Unidos (Sede Central)",
+        "address": "152 Thatcher Road St, Manhattan, 10463, EE. UU.",
+        "phone": "(+025) 3886 25 16",
+        "email": "hello@swattechmart.com"
+      },
+      "uk": {
+        "title": "Reino Unido (Sucursal)",
+        "address": "12 Buckingham Rd, Thornthwaite, HG3 4TY, RU",
+        "phone": "(+718) 895-5350",
+        "email": "contact@swattechmart.co.uk"
+      }
+    }
+  },
+  "footer": {
+    "brandTitle": "SWOO - 1ER MERCADO TECNOLÓGICO ONLINE DE NYC",
+    "hotline": "Línea 24/7",
+    "addressLine1": "257 Thatcher Road St, Brooklyn, Manhattan,",
+    "addressLine2": "NY 10092",
+    "email": "contact@Swootechmart.com",
+    "topCategories": "CATEGORÍAS PRINCIPALES",
+    "categories": {
+      "laptops": "Portátiles",
+      "pc": "PC y Computadoras",
+      "phones": "Teléfonos Móviles",
+      "tablets": "Tabletas",
+      "gaming": "Juegos y VR",
+      "networks": "Redes",
+      "cameras": "Cámaras",
+      "sounds": "Audio",
+      "office": "Oficina"
+    },
+    "company": "EMPRESA",
+    "companyLinks": {
+      "about": "Acerca de Swoo",
+      "contact": "Contacto",
+      "career": "Carreras",
+      "blog": "Blog",
+      "sitemap": "Mapa del Sitio",
+      "stores": "Ubicaciones de Tiendas"
+    },
+    "helpCenter": "CENTRO DE AYUDA",
+    "helpLinks": {
+      "customerService": "Servicio al Cliente",
+      "policy": "Política",
+      "terms": "Términos y Condiciones",
+      "track": "Rastrear Pedido",
+      "faqs": "Preguntas Frecuentes",
+      "account": "Mi Cuenta",
+      "support": "Soporte de Producto"
+    },
+    "partner": "ASOCIADO",
+    "partnerLinks": {
+      "seller": "Ser Vendedor",
+      "affiliate": "Afiliado",
+      "advertise": "Anunciarse",
+      "partnership": "Asociación"
+    },
+    "subscribeTitle": "SUSCRÍBETE Y OBTÉN",
+    "subscribeOff": "10% DE DESCUENTO",
+    "subscribeSubtitle": "EN TU PRIMER PEDIDO",
+    "emailPlaceholder": "Ingresa tu correo electrónico",
+    "subscribe": "SUSCRIBIRSE",
+    "policyText": "Al suscribirte, aceptas nuestra",
+    "policyLink": "Política",
+    "copyright": "Todos los Derechos Reservados",
+    "payment": {
+      "paypal": "PayPal",
+      "mastercard": "MasterCard",
+      "visa": "VISA",
+      "stripe": "Stripe",
+      "klarna": "Klarna"
+    }
+  },
+  "home": {
+    "hero": {
+      "saleTag": "OFERTA 40% DTO",
+      "bannerTitle": "Auriculares con",
+      "bannerSubtitle": "Cancelación de Ruido",
+      "showMore": "Ver Más",
+      "bannerDescription": [
+        "Auriculares Over-Ear Boso",
+        "Wifi, Asistente de Voz,",
+        "Modo de juego baja latencia"
+      ],
+      "bannerButton": "Comprar Ahora",
+      "bottomCard1Title": "Sono Playgo 5 desde",
+      "bottomCard1Price": "$569",
+      "bottomCard1Link": "Descubrir Ahora",
+      "bottomCard2Title": "Teclado Logitek",
+      "bottomCard2Highlight": "Bluetooth",
+      "bottomCard2Subtitle": "Ideal para todos los dispositivos",
+      "categories": {
+        "beauty": "Belleza",
+        "fragrances": "Perfumes",
+        "furniture": "Muebles",
+        "groceries": "Alimentos",
+        "home-decoration": "Decoración del Hogar",
+        "kitchen-accessories": "Accesorios de Cocina",
+        "laptops": "Portátiles",
+        "mens-shirts": "Camisas de Hombre",
+        "mens-shoes": "Zapatos de Hombre",
+        "mens-watches": "Relojes de Hombre",
+        "mobile-accessories": "Accesorios Móviles",
+        "motorcycle": "Motocicleta",
+        "skin-care": "Cuidado de la Piel",
+        "smartphones": "Teléfonos Inteligentes",
+        "sports-accessories": "Accesorios Deportivos",
+        "sunglasses": "Gafas de Sol",
+        "tablets": "Tabletas",
+        "tops": "Blusas",
+        "vehicle": "Vehículo",
+        "womens-bags": "Bolsos de Mujer",
+        "womens-dresses": "Vestidos de Mujer",
+        "womens-jewellery": "Joyería de Mujer",
+        "womens-shoes": "Zapatos de Mujer",
+        "womens-watches": "Relojes de Mujer"
+      }
+    },
+    "brands": {
+      "featuredBrands": "Marcas Destacadas",
+      "topCategories": "Categorías Principales",
+      "categories": {
+        "laptops": "Portátiles",
+        "pc-gaming": "PC Gaming",
+        "headphones": "Auriculares",
+        "monitors": "Monitores"
+      }
+    },
+    "seller": {
+      "filters": {
+        "popular": "Popular",
+        "newIn": "Nuevo",
+        "bestSeller": "Más Vendido"
+      },
+      "viewAll": "Ver todo"
+    },
+    "newBrand": {
+      "sectionTitle": "Novedades para ti",
+      "newsItems": [
+        {
+          "head": "Gabinete de Computadora Zumac Steel",
+          "title": "Y opción de actualizar cada tres años",
+          "button": "Comprar Ahora"
+        },
+        {
+          "head": "Oferta de Verano con hasta 50% DTO en Sillas Gaming Foam",
+          "title": "Oferta por tiempo limitado. ¡Date prisa!",
+          "button": "Comprar Ahora"
+        },
+        {
+          "head": "Oferta de Verano con hasta 50% DTO en Sillas Gaming Foam.",
+          "title": "Oferta por tiempo limitado. ¡Date prisa!",
+          "button": "Comprar Ahora"
+        },
+        {
+          "head": "iPed Pro Mini 6 - Potente en tu mano",
+          "title": "Desde $19.99/mes por 36 meses. Pago final de $280.35 en el mes 37",
+          "button": "Comprar Ahora"
+        }
+      ]
+    },
+    "phones": {
+      "sectionTitle": "Mejores Teléfonos y Tabletas"
+    },
+    "laptops": {
+      "sectionTitle": "Mejores Portátiles y Computadoras"
+    },
+    "banners": {
+      "audios_cameras": {
+        "title": "Audio y Cámaras",
+        "items": {
+          "speaker": "Altavoces",
+          "dslr_camera": "Cámara DSLR",
+          "earbuds": "Auriculares",
+          "microphone": "Micrófono"
+        }
+      },
+      "gaming": {
+        "title": "Gaming",
+        "items": {
+          "monitors": "Monitores",
+          "chair": "Sillas",
+          "controller": "Controles",
+          "keyboards": "Teclados"
+        }
+      },
+      "office_equipments": {
+        "title": "Equipos de Oficina",
+        "items": {
+          "printers": "Impresoras",
+          "network": "Redes",
+          "security": "Seguridad",
+          "projectors": "Proyectores"
+        }
+      }
+    },
+    "text": {
+      "heading": "Swoo – #1 Mercado Online de Tecnología",
+      "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae posuere mi. Quisque iaculis dignissim scelerisque. Morbi condimentum sagittis leo vitae tempor. Suspendisse in dolor odio. Sed aliquet ac lacus ut luctus. Fusce mattis sollicitudin sem, id lobortis nibh ullamcorper a. Donec vehicula dolor et arcu consequat mattis. Fusce mattis nec nulla in scelerisque.",
+      "paragraph2": "Morbi pharetra sem mauris, nec aliquet ipsum vestibulum suscipit. Curabitur non euismod dui. Proin eget justo eu erat luctus placerat. Nam rhoncus ipsum ac enim faucibus, at consequat ante maximus. Vestibulum at nibh ac odio ultrices varius. Duis vitae libero mollis, lobortis ligula id, varius erat. Sed id odio dictum, laoreet enim ac, commodo magna. Praesent sodales porttitor maximus. Sed a lacus felis. Maecenas consectetur consequat orci scelerisque malesuada. Fusce vel orci eu tortor consequat mattis quis at ante. Class aptent taciti sociosqu ad litora torquent per conubi."
+    }
+  },
+  "cart": {
+    "product_name": "Nombre del Producto Aquí",
+    "low_stock": "Solo quedan {{count}} en stock",
+    "empty": "VACÍO",
+    "desc": "Parece que aún no has añadido nada a tu carrito.",
+    "title": "Carrito de Compras",
+    "item": "artículo",
+    "items": "artículos",
+    "clear_cart": "Vaciar Carrito",
+    "in_stock": "En Stock",
+    "out_of_stock": "Agotado",
+    "limit_reached": "Límite 5 por pedido",
+    "subtotal": "Subtotal",
+    "order_summary": "Resumen del Pedido",
+    "sub_total": "Subtotal",
+    "shipping_estimate": "Estimado de Envío",
+    "tax_estimate": "Estimado de Impuestos",
+    "order_total": "Total del Pedido",
+    "checkout": "Finalizar Compra",
+    "continue_shopping": "Seguir Comprando",
+    "loading": "Cargando tu carrito...",
+    "clearTitle": "¿Vaciar Carrito?",
+    "cleared_desc": "Todos los artículos han sido eliminados. Tu bolsa está vacía.",
+    "clearMessage": "¿Estás seguro de que quieres eliminar todos los artículos? Tendrás que añadirlos nuevamente si cambias de opinión.",
+    "clearConfirm": "Sí, vaciar carrito",
+    "clearedSuccess": "Carrito vaciado exitosamente"
+  },
+  "wishlist": {
+    "title": "Mi Lista de Deseos",
+    "clear_button": "Limpiar Lista",
+    "empty": "TU LISTA DE DESEOS ESTÁ VACÍA",
+    "desc": "¡Parece que aún no has añadido favoritos! Empieza a explorar.",
+    "loading": "Cargando tus favoritos...",
+    "clearTitle": "¿Limpiar Lista?",
+    "clearMessage": "¿Estás seguro de eliminar todos los artículos guardados? No podrás deshacer esta acción.",
+    "clearConfirm": "Sí, limpiar todo",
+    "cleared_success": "Lista de deseos limpiada",
+    "cleared_desc": "Todos los artículos han sido eliminados de tu lista."
+  },
+  "settings": {
+    "title": "Ajustes",
+    "mainColor": "Color del tema",
+    "colorsCount": "colores",
+    "preferences": "preferencias",
+    "changeMode": "Apariencia",
+    "currentColor": "Color actual",
+    "custom": "Color personalizado",
+    "closeTip": "Haz clic fuera para cerrar"
+  },
+  "error404": {
+    "title": "¿Perdiste tu camino?",
+    "description": "Lo sentimos, no encontramos esa página. Encontrarás mucho para explorar en la página de inicio.",
+    "goHome": "Ir al Inicio",
+    "code": "Código de Error: 404_NOT_FOUND"
+  },
+  "users": {
+    "title": "Usuarios",
+    "password": "Contraseña",
+    "add": "Añadir Usuario",
+    "name": "Nombre",
+    "email": "Correo",
+    "deleteTitle": "Confirmar Eliminación",
+    "deleteMessage": "¿Estás seguro de que quieres eliminar este usuario? Esta acción no se puede deshacer.",
+    "confirmText": "Sí, Eliminar",
+    "role": "Elegir Rol"
+  },
+  "common": {
+    "actions": "Acciones",
+    "edit": "Editar",
+    "fetching_deals": "Obteniendo las mejores ofertas para ti...",
+    "delete": "Eliminar",
+    "shopping": "Seguir Comprando",
+    "browse": "o explorar",
+    "products": "productos",
+    "cancel": "cancelar",
+    "end": "Fin",
+    "login": "iniciar sesión",
+    "Loading": "Cargando",
+    "save": "guardar",
+    "uploadImage": "Subir imagen",
+    "noImage": "Ninguna imagen seleccionada",
+    "error": "Algo salió mal. Por favor intenta de nuevo.",
+    "search": "Buscar...",
+    "logged_out": "¡Sesión cerrada exitosamente!",
+    "press": "Presiona ESC para cancelar"
+  },
+  "productControl": {
+    "id": "ID",
+    "title": "Nombre del Producto",
+    "add": "Añadir Producto",
+    "product": "Producto",
+    "brand": "Marca",
+    "rating": "Valoración",
+    "discountPercentage": "Descuento",
+    "price": "Precio",
+    "stock": "Stock",
+    "outOfStock": "Agotado",
+    "description": "Descripción",
+    "image": "Imagen del producto",
+    "category": "elegir Categoría",
+    "search": "buscar..."
+  },
+  "dashboard": {
+    "totalUsers": "Total Usuarios",
+    "totalProducts": "Total Productos",
+    "orders": "Pedidos",
+    "revenue": "Ingresos",
+    "topUsers": "Mejores Usuarios",
+    "topProducts": "Mejores Productos",
+    "purchases": "compras",
+    "sold": "vendidos"
+  },
+  "auth": {
+    "accessDenied": "Acceso denegado. No tienes permiso para ver esta página.",
+    "loginUser": "Cambiar a Usuario",
+    "loginAdmin": "Cambiar a Admin",
+    "currentRole": "Rol actual",
+    "roles": {
+      "user": "Usuario",
+      "admin": "Administrador"
+    }
+  },
+  "checkout": {
+    "billing_details": "Detalles de Facturación",
+    "first_name": "Nombre",
+    "last_name": "Apellido",
+    "company_name": "Nombre de Empresa (Opcional)",
+    "country": "País / Región",
+    "street_address": "Dirección",
+    "apartment": "Apartamento, suite, unidad, etc. (Opcional)",
+    "city": "Ciudad / Pueblo",
+    "state": "Estado / Provincia",
+    "zip": "Código Postal",
+    "phone": "Teléfono",
+    "email": "Correo Electrónico",
+    "order_notes": "Notas del Pedido (Opcional)",
+    "direct_bank_transfer": "Transferencia Bancaria Directa",
+    "cash_on_delivery": "Pago Contra Entrega",
+    "place_order": "Realizar Pedido",
+    "sub_total": "Subtotal:",
+    "shipping": "envío",
+    "product": "Productos",
+    "order_total": "Total del Pedido:",
+    "what_is_paypal": "¿Qué es PayPal?",
+    "direct_bank_desc": "Por favor transfiere directamente a nuestra cuenta bancaria usando el número de pedido como referencia. El envío se realizará una vez que se confirme el pago."
+  },
+  "toast": {
+    "added_to": "Añadido a",
+    "removed_from": "Eliminado de"
+  },
+  "errors": {
+    "invalid_credentials": "Correo o contraseña incorrectos.",
+    "Name must be at least 4 characters": "El nombre debe tener al menos 4 caracteres",
+    "Invalid email address": "Ingresa un correo electrónico válido",
+    "something_went_wrong": "¡Oops! No pudimos conectar con el servidor. Verifica tu internet e intenta de nuevo.",
+    "Email already exists": "Este correo ya está registrado",
+    "Password strength requirement": "Debe tener 6+ caracteres, 1 Mayúscula, 1 Minúscula y 1 Número",
+    "Password is required": "La contraseña es obligatoria",
+    "Passwords do not match": "Las contraseñas no coinciden"
+  },
+  "messages": {
+    "loginRequired": "¡Inicia sesión para acceder a esta función!",
+    "userAdded": "¡Usuario creado exitosamente!",
+    "userUpdated": "¡Información del usuario actualizada!",
+    "userDeleted": "El usuario ha sido eliminado.",
+    "error": "Algo salió mal. Por favor intenta de nuevo.",
+    "required": "Este campo es obligatorio",
+    "invalidEmail": "Ingresa un correo electrónico válido",
+    "invalidName": "El nombre debe tener al menos 4 caracteres",
+    "invalidPassword": "La contraseña debe cumplir todos los requisitos de seguridad",
+    "emailTaken": "Este correo ya está en uso",
+    "productAdded": "Producto añadido exitosamente",
+    "productUpdated": "Producto actualizado exitosamente",
+    "adminRestricted": "Restringido para Administradores",
+    "adminNoShopping": "Las cuentas de administrador no pueden realizar esta acción"
+  },
+  "colors": {
+    "fresh_eco": "Eco Fresco",
+    "classic_blue": "Azul Clásico",
+    "midnight": "Medianoche",
+    "rose_punch": "Rosa Intenso",
+    "vivid_orange": "Naranja Vivo",
+    "gold_standard": "Oro Estándar",
+    "modern_violet": "Violeta Moderno",
+    "deep_teal": "Azul Verdoso",
+    "electric_pink": "Rosa Eléctrico",
+    "tropical_teal": "Teal Tropical",
+    "sky_high": "Cielo Abierto",
+    "deep_royal": "Real Profundo"
+  },
+  "from": {
+    "popular": "Popular",
+    "bestSeller": "Más vendidos",
+    "newIn": "Novedades",
+    "placeholder": "Seleccione una opción"
+  },"categories": {
+    "beauty": "Belleza",
+    "fragrances": "Fragancias",
+    "furniture": "Muebles",
+    "groceries": "Comestibles",
+    "home-decoration": "Decoración del hogar",
+    "kitchen-accessories": "Accesorios de cocina",
+    "laptops": "Portátiles",
+    "mens-shirts": "Camisas de hombre",
+    "mens-shoes": "Zapatos de hombre",
+    "mens-watches": "Relojes de hombre",
+    "mobile-accessories": "Accesorios para móviles",
+    "motorcycle": "Motocicletas",
+    "skin-care": "Cuidado de la piel",
+    "smartphones": "Smartphones",
+    "sports-accessories": "Accesorios deportivos",
+    "sunglasses": "Gafas de sol",
+    "tablets": "Tabletas",
+    "tops": "Blusas y Tops",
+    "vehicle": "Vehículos",
+    "womens-bags": "Bolsos de mujer",
+    "womens-dresses": "Vestidos de mujer",
+    "womens-jewellery": "Joyería de mujer",
+    "womens-shoes": "Zapatos de mujer",
+    "womens-watches": "Relojes de mujer"
+  }
+}

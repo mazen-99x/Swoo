@@ -2,12 +2,10 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
-const stats = [
-  { key: "totalUsers", value: 124 },
-  { key: "totalProducts", value: 58 },
-  { key: "orders", value: 342 },
-  { key: "revenue", value: "$12,430" },
-];
+import {
+  useGetUserCountQuery,
+  useGetProductCountQuery,
+} from "../../Store/Actions/GetRegisiter";
 
 const topUsers = [
   { id: 1, name: "Ahmed Ali", purchases: 12 },
@@ -23,10 +21,21 @@ const topProducts = [
 
 const Dashboard = () => {
   const { t } = useTranslation();
-
+  const { data: users, isLoading: userLoading } = useGetUserCountQuery();
+  const { data: products, isLoading: productLoading } =
+    useGetProductCountQuery();
+  console.log(users);
   const isRTL = i18n.language === "ar";
   const dir = isRTL ? "rtl" : "ltr";
-
+  const stats = [
+    {
+      key: "totalUsers",
+      value: userLoading ? "..." : users || 0,
+    },
+    { key: "totalProducts", value: productLoading ? "..." : products || 0 },
+    { key: "orders", value: 342 },
+    { key: "revenue", value: "$12,430" },
+  ];
   return (
     <div className="p-4 md:p-6 space-y-6" dir={dir}>
       {/* Stats */}

@@ -14,11 +14,16 @@ const WishlistSlice = createSlice({
         state.wishItems.push(id);
       }
     },
+    hydrateWishlist: (state, action) => {
+     
+      state.wishItems = action.payload;
+    },
     clearWishList: (state) => {
       state.wishItems = [];
     },
   },
 });
 
-export const { toggleWishlist, clearWishList } = WishlistSlice.actions;
+export const { toggleWishlist, clearWishList, hydrateWishlist } =
+  WishlistSlice.actions;
 export default WishlistSlice.reducer;

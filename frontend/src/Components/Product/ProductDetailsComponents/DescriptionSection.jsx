@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-
-  FaChevronDown,
-  FaChevronUp,
-
-} from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 const DescriptionSection = ({ product, translate }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const isLong = product.description?.length > 150;
@@ -27,7 +22,9 @@ const DescriptionSection = ({ product, translate }) => {
             onClick={() => setShowFullDescription(!showFullDescription)}
             className="mt-2 text-(--main-color) cursor-pointer font-medium flex items-center gap-1 text-sm sm:text-base"
           >
-            {showFullDescription ? "Show Less" : "Read More"}
+            {showFullDescription
+              ? translate("product.show_less")
+              : translate("product.read_more")}
             {showFullDescription ? <FaChevronUp /> : <FaChevronDown />}
           </button>
         )}

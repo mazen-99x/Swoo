@@ -12,19 +12,26 @@
     "redirecting_to_login": "جاري تحويلك إلى صفحة تسجيل الدخول..."
   },
   "signin": {
-    "Welcome Back": "مرحبًا بعودتك",
     "Login to continue": "تسجيل الدخول للمتابعة",
     "Email Address": "البريد الإلكتروني",
     "Password": "كلمة المرور",
     "Login": "تسجيل الدخول",
     "New User?": "مستخدم جديد؟",
+    "Welcome Back": "مرحبا بك",
+    "welcome_back": "مرحباً  يا {{name}}! تم تسجيل الدخول بنجاح.",
     "Sign up": "إنشاء حساب",
     "Login illustration": "رسم توضيحي لتسجيل الدخول"
   },
   "profile": {
     "myProfile": "ملفي الشخصي",
+    "sameAsOld": "لا يمكن أن تكون كلمة المرور الجديدة هي نفسها كلمة المرور الحالية",
     "manageSettings": "إدارة إعدادات حسابك وتفضيلاتك",
     "userAvatar": "صورة المستخدم",
+    "deleteAccount": "حذف الحساب",
+    "deleteConfirmMsg": "هل أنت متأكد أنك تريد حذف حسابك؟ هذا الإجراء لا يمكن التراجع عنه وسيتم مسح جميع بياناتك نهائياً.",
+    "deleteForever": "حذف الحساب ",
+    "deleteHeading": "منطقة الخطورة",
+    "deleteWarning": "بمجرد حذف حسابك، لن تتمكن من استعادة أي بيانات أو مشتريات سابقة.",
     "orders": "الطلبات",
     "wishlist": "قائمة الأمنيات",
     "reviews": "المراجعات",
@@ -57,22 +64,21 @@
     "passChanged": "تم تغيير كلمة المرور بنجاح",
     "passResetFailed": "فشل تغيير كلمة المرور",
     "passSecure": "كلمة المرور الخاصة بك مخزنة بشكل آمن",
-    "deleteAccount": "حذف الحساب",
-    "deleteHeading": "حذف حسابك",
-    "deleteWarning": "بمجرد الحذف، سيتم إزالة جميع بياناتك نهائياً",
-    "deleteConfirmMsg": "هل أنت متأكد أنك تريد حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء.",
-    "deleteForever": "حذف نهائي",
     "accountDeletedSuccess": "تم حذف الحساب بنجاح"
   },
   "search": {
-    "placeholder": "ابحث...",
+    "search": "...ابحث",
+    "results": "نتائج",
+    "showing": "عرض",
+    "noProducts": "لم يتم العثور على منتجات",
+    "tryDifferentKeywords": "جرب تعديل خيارات التصفية أو استخدام كلمات بحث مختلفة للعثور على ما تبحث عنه.",
     "resultsFor": "نتائج البحث عن",
     "noResultsFor": "لم يتم العثور على نتائج لـ",
     "found": "تم العثور على",
     "products": "منتجات",
-    "tryDifferentKeywords": "جرب استخدام كلمات بحث مختلفة أو تأكد من الكتابة بشكل صحيح.",
     "page": "صفحة",
-    "of": "من"
+    "of": "من",
+    "adjustFilters": "جرب تعديل خيارات التصفية أو كلمات البحث"
   },
   "nav": {
     "Home": "الرئيسية",
@@ -86,10 +92,18 @@
     "Profile": "الملف الشخصي",
     "Log Out": "تسجيل الخروج",
     "Sign Up": "إنشاء حساب",
-    "Sign In": "تسجيل الدخول"
+    "Sign In": "تسجيل الدخول",
+    "logoutTitle": "تسجيل الخروج؟",
+    "logoutMessage": "هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟",
+    "confirmLogout": " تسجيل الخروج",
+    "cancel": "إلغاء"
   },
   "product": {
-    "inStock": "متوفر",
+    "inStock": "متوفر","show_less": "عرض أقل",
+    "read_more": "اقرأ المزيد",
+    "deleteTitle": "حذف المنتج",
+    "deleteMessage": "هل أنت متأكد أنك تريد حذف هذا المنتج؟ لا يمكن التراجع عن هذا الإجراء.",
+    "confirmDelete": "احذف الآن",
     "outOfStock": "غير متوفر",
     "filters": "الفلاتر",
     "perPage": "لكل صفحة",
@@ -418,6 +432,7 @@
   "cart": {
     "product_name": "اسم المنتج هنا",
     "desc": "يبدو أنك لم تضف أي شيء إلى سلة التسوق الخاصة بك بعد.",
+    "low_stock": "متبقي {{count}} فقط في المخزن",
     "browse": "أو تصفح",
     "empty": "فارغ",
     "products": "المنتجات",
@@ -456,10 +471,14 @@
     "cleared_desc": "تمت إزالة جميع العناصر من قائمة العناصر المحفوظة."
   },
   "settings": {
-    "title": "إعدادات المظهر",
-    "mainColor": "اللون الرئيسي",
-    "changeMode": "تغيير المظهر",
-    "closeTip": "اضغط على الترس مرة أخرى للإغلاق"
+    "title": "الإعدادات",
+    "mainColor": "لون المظهر",
+    "colorsCount": "لون",
+    "preferences": "تفضيلات",
+    "changeMode": "المظهر",
+    "currentColor": "اللون الحالي",
+    "custom": "لون مخصص",
+    "closeTip": "اضغط في أي مكان للإغلاق"
   },
   "error404": {
     "title": "هل ضللت الطريق؟",
@@ -471,12 +490,19 @@
     "title": "المستخدمون",
     "add": "إضافة مستخدم",
     "name": "الاسم",
+    "deleteTitle": "تأكيد الحذف",
+    "deleteMessage": "هل أنت متأكد أنك تريد حذف هذا المستخدم؟ لا يمكن التراجع عن هذا الإجراء.",
+    "confirmText": "نعم، احذف",
+    "password": "كلمة السر",
     "email": "البريد الإلكتروني",
     "role": "الدور"
   },
   "common": {
     "actions": "الإجراءات",
+    "end": "النهاية",
     "press": "اضغط على ESC للإلغاء",
+    "Loading": "جاري التحميل",
+    "fetching_deals": "نبحث لك عن أفضل العروض...",
     "edit": "تعديل",
     "delete": "حذف",
     "browse": "أو تصفح",
@@ -487,9 +513,9 @@
     "uploadImage": "رفع صورة",
     "noImage": "لم يتم اختيار صورة",
     "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
-    "loading": "جاري البحث",
-    "search": "بحث...",
-    "login": "تسجيل الدخول"
+    "search": "...ابحث",
+    "login": "تسجيل الدخول",
+    "logged_out": "تم تسجيل الخروج بنجاح !"
   },
   "productControl": {
     "id": "  المعرّف (ID)",
@@ -559,10 +585,70 @@
     "Name must be at least 4 characters": "يجب أن يكون الاسم 4 أحرف على الأقل",
     "Invalid email address": "الرجاء إدخال بريد إلكتروني صحيح",
     "Email already exists": "هذا البريد الإلكتروني مسجل بالفعل",
+    "Password is required": "كلمة المرور مطلوبة",
     "Password strength requirement": "يجب أن يكون 6 أحرف على الأقل، حرف كبير، حرف صغير، ورقم",
-    "Passwords do not match": "كلمات المرور غير متطابقة"
+    "Passwords do not match": "كلمات المرور غير متطابقة",
+    "something_went_wrong": "عذراً! لم نتمكن من الاتصال بالخادم. يرجى التحقق من الاتصال بالإنترنت والمحاولة مرة أخرى.",
+    "invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة"
   },
   "messages": {
-    "loginRequired": "يرجى تسجيل الدخول للوصول إلى هذه الميزة!"
+    "loginRequired": "يرجى تسجيل الدخول للوصول إلى هذه الميزة!",
+    "userAdded": "تم إنشاء المستخدم بنجاح!",
+    "userUpdated": "تم تحديث بيانات المستخدم!",
+    "userDeleted": "تم إزالة المستخدم.",
+    "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "required": "هذا الحقل مطلوب",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+    "invalidName": "يجب أن يكون الاسم 4 أحرف على الأقل",
+    "invalidPassword": "كلمة المرور لا تستوفي شروط الأمان",
+    "emailTaken": "هذا البريد الإلكتروني مستخدم بالفعل",
+    "adminRestricted": "وصول مقيد للمسؤول",
+    "adminNoShopping": "لا يمكن لحسابات المسؤولين القيام بهذه العمليات .",
+    "productAdded": "تم إضافة المنتج بنجاح",
+    "productUpdated": "تم تحديث المنتج بنجاح"
+  },
+  "colors": {
+    "fresh_eco": "أخضر بيئي",
+    "classic_blue": "أزرق كلاسيكي",
+    "midnight": "أزرق داكن",
+    "rose_punch": "وردي مشرق",
+    "vivid_orange": "برتقالي حيوي",
+    "gold_standard": "ذهبي قياسي",
+    "modern_violet": "بنفسجي عصري",
+    "deep_teal": "تيل عميق",
+    "electric_pink": "وردي كهربائي",
+    "tropical_teal": "تيل استوائي",
+    "sky_high": "سماء صافية",
+    "deep_royal": "ملكي عميق"
+  },
+  "from": {
+    "popular": "شائع",
+    "bestSeller": "الأكثر مبيعاً",
+    "newIn": "وصل حديثاً"
+  },"categories": {
+    "beauty": "الموضة",
+    "fragrances": "العطور",
+    "furniture": "الأثاث",
+    "groceries": "البقالة",
+    "home-decoration": "ديكور المنزل",
+    "kitchen-accessories": "إكسسوارات المطبخ",
+    "laptops": "لاب توب",
+    "mens-shirts": "قمصان رجالي",
+    "mens-shoes": "أحذية رجالي",
+    "mens-watches": "ساعات رجالي",
+    "mobile-accessories": "إكسسوارات الموبايل",
+    "motorcycle": "دراجات نارية",
+    "skin-care": "العناية بالبشرة",
+    "smartphones": "هواتف ذكية",
+    "sports-accessories": "مستلزمات رياضية",
+    "sunglasses": "نظارات شمسية",
+    "tablets": "تابلت",
+    "tops": "ملابس علوية",
+    "vehicle": "مركبات",
+    "womens-bags": "حقائب نسائية",
+    "womens-dresses": "فساتين نسائية",
+    "womens-jewellery": "مجوهرات نسائية",
+    "womens-shoes": "أحذية نسائية",
+    "womens-watches": "ساعات نسائية"
   }
 }

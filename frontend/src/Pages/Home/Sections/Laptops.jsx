@@ -1,5 +1,5 @@
 import React from "react";
-import ProductSection from "../../../Components/ProductSection";
+import ProductSection from "../../../Components/Product/ProductSection";
 import { useTranslation } from "react-i18next";
 
 import { useQuery } from "@tanstack/react-query";

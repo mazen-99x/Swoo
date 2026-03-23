@@ -1,23 +1,35 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import FormModal from "../../Components/FormModal";
-import OutlineButton from "../../Components/OutlineButton";
+import FormModal from "../../Components/Modals/FormModal";
+import OutlineButton from "../../Components/Common/OutlineButton";
+
 import i18n from "../../i18n";
 import UseGetSeller from "../../Hooks/UseGetSeller";
 import axios from "axios";
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import ConfirmModal from "../../Components/Modals/ConfirmModal";
 
 const page_size = 5;
 
 const ProductControl = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState(null);
   const currentPage = parseInt(searchParams.get("page") || "1");
   const { t } = useTranslation();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const slugify = (text) =>
+    text
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]+/g, "");
+
   const productFields = [
     { name: "id", type: "string", label: "productControl.id" },
 
@@ -113,7 +125,7 @@ const ProductControl = () => {
   const { data, isLoading, isError } = UseGetSeller();
   const queryClient = useQueryClient();
 
-  // Scroll to top on page change
+  
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
@@ -138,7 +150,6 @@ const ProductControl = () => {
     [searchParams, setSearchParams],
   );
 
-  // Mutations
   const deleteMutation = useMutation({
     mutationFn: (id) => axios.delete(`http://localhost:5000/products/${id}`),
     onSuccess: () => queryClient.invalidateQueries(["seller"]),
@@ -159,25 +170,24 @@ const ProductControl = () => {
         ...newProduct,
         badge: newProduct.type,
       }),
-    onSuccess: () => queryClient.invalidateQueries(["seller"]),
+    onSuccess: () => {
+      
+      queryClient.invalidateQueries(["seller"]);
+
+      
+      toast.success(t("messages.productAdded"));
+    },
+    onError: (error) => {
+      console.error("Mutation Error:", error);
+      toast.error(t("messages.error"));
+    },
   });
 
-  if (isLoading)
-    return (
-      <div className="p-10 text-center font-bold">{t("common.loading")}...</div>
-    );
-  if (isError)
-    return (
-      <div className="p-10 text-center text-red-500 font-bold">
-        {t("common.error")}
-      </div>
-    );
-
-  // Filter and Paginate
+ 
   const filteredProducts =
     data?.filter((e) =>
       e.title
-        .toLowerCase()
+        ?.toLowerCase()
         .replace(/\s+/g, "")
         .includes(search.toLowerCase().replace(/\s+/g, "")),
     ) || [];
@@ -193,7 +203,44 @@ const ProductControl = () => {
       typeof newPage == "function" ? newPage(currentPage) : newPage;
     updateQueryParams({ page: pageval });
   };
+  useEffect(() => {
+    if (currentPage > 1 && filteredProducts.length === 0 && !isLoading) {
+      updateQueryParams({ page: currentPage - 1 });
+    }
+  }, [filteredProducts.length, currentPage, updateQueryParams, isLoading]);
+  const highlightText = (text, highlight) => {
+    if (!highlight.trim()) return text;
 
+    
+    const parts = text.split(new RegExp(`(${highlight})`, "gi"));
+
+    return (
+      <span>
+        {parts.map((part, i) =>
+          part.toLowerCase() === highlight.toLowerCase() ? (
+            <mark
+              key={i}
+              className="bg-(--main-color) text-(--white-color) rounded-sm px-0.5"
+            >
+              {part}
+            </mark>
+          ) : (
+            part
+          ),
+        )}
+      </span>
+    );
+  };
+  if (isLoading)
+    return (
+      <div className="p-10 text-center font-bold">{t("common.loading")}...</div>
+    );
+  if (isError)
+    return (
+      <div className="p-10 text-center text-red-500 font-bold">
+        {t("common.error")}
+      </div>
+    );
   return (
     <div className="p-4 md:p-6" dir={dir}>
       {/* Header Area */}
@@ -243,56 +290,66 @@ const ProductControl = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-              {paginatedProducts.map((product) => (
-                <tr
-                  key={product.id}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                >
-                  <td className="p-4">
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={product.thumbnail}
-                        className="w-12 h-12 rounded-lg object-cover bg-gray-100"
-                        alt=""
-                      />
-                      <div>
-                        <p className="font-bold text-gray-900 dark:text-white line-clamp-1">
-                          {product.title}
-                        </p>
-                        <p className="text-xs text-gray-500 sm:hidden">
-                          ${product.price}
-                        </p>
+              {paginatedProducts.map((product) => {
+                return (
+                  <tr
+                    key={product.id}
+                    className="transition-colors border-b cursor-pointer dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                  >
+                    <td className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Link
+                          to={`/${slugify(product.title)}/${product.id}`}
+                          className="block relative"
+                        >
+                          <img
+                            src={product.thumbnail}
+                            className="w-12 h-12 rounded-lg object-cover bg-gray-100"
+                            alt=""
+                          />
+                        </Link>
+                        <div>
+                          <p className="font-bold text-gray-900 dark:text-white line-clamp-1">
+                            {highlightText(product.title, search)}
+                          </p>
+                          <p className="text-xs text-gray-500 sm:hidden">
+                            ${product.price}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="p-4 hidden sm:table-cell dark:text-gray-300">
-                    ${product.price}
-                  </td>
-                  <td className="p-4 hidden md:table-cell dark:text-gray-300">
-                    {product.stock}
-                  </td>
-                  <td className="p-4">
-                    <div className="flex gap-2 justify-center">
-                      <OutlineButton
-                        onClick={() => {
-                          setSelectedProduct(product);
-                          setIsEdit(true);
-                          setOpen(true);
-                        }}
-                        className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-3 py-1 text-sm"
-                      >
-                        {t("common.edit")}
-                      </OutlineButton>
-                      <OutlineButton
-                        onClick={() => deleteMutation.mutate(product.id)}
-                        className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-3 py-1 text-sm "
-                      >
-                        {t("common.delete")}
-                      </OutlineButton>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                    <td className="p-4 hidden sm:table-cell dark:text-gray-300">
+                      ${product.price}
+                    </td>
+                    <td className="p-4 hidden md:table-cell dark:text-gray-300">
+                      {product.stock}
+                    </td>
+                    <td className="p-4">
+                      <div className="flex gap-2 justify-center">
+                        <OutlineButton
+                          onClick={() => {
+                            setSelectedProduct(product);
+                            setIsEdit(true);
+                            setOpen(true);
+                          }}
+                          className="border-blue-500 text-blue-500 hover:bg-blue-500  px-3 py-1 text-sm"
+                        >
+                          {t("common.edit")}
+                        </OutlineButton>
+                        <OutlineButton
+                          onClick={() => {
+                            setSelectedProductId(product.id);
+                            setIsModalOpen(true);
+                          }}
+                          className="border-red-500 text-red-500 hover:bg-red-500  px-3 py-1 text-sm "
+                        >
+                          {t("common.delete")}
+                        </OutlineButton>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
@@ -308,16 +365,18 @@ const ProductControl = () => {
           >
             {t("product.preview")}
           </OutlineButton>
-
-          <div className="flex gap-1">
+          <div className="sm:hidden px-4 py-2 rounded-xl bg-(--main-color) text-white font-medium shadow">
+            {currentPage} / {totalPages}
+          </div>
+          <div className="hidden sm:flex gap-1">
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
-                className={`w-10 h-10 cursor-pointerloading rounded-lg font-medium transition-all ${
+                className={`w-10 h-10 cursor-pointer loading rounded-lg font-medium transition-all ${
                   currentPage === page
-                    ? "bg-(--main-color) text-white shadow-lg"
-                    : "hover:bg-gray-100 dark:hover:bg-gray-700"
+                    ? "bg-(--main-color) text-white shadow-md shadow-(--main-color)/30 scale-105"
+                    : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-(--main-color) hover:text-white hover:scale-105"
                 } ${Math.abs(currentPage - page) > 1 && page !== 1 && page !== totalPages ? "hidden sm:block" : ""}`}
               >
                 {page}
@@ -334,7 +393,14 @@ const ProductControl = () => {
           </OutlineButton>
         </div>
       )}
-
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onConfirm={() => deleteMutation.mutate(selectedProductId)}
+        onCancel={() => setIsModalOpen(false)}
+        title={t("product.deleteTitle")}
+        message={t("product.deleteMessage")}
+        confirmText={t("product.confirmDelete")}
+      />
       {/* Form Modal (Keep your existing one) */}
       <FormModal
         open={open}

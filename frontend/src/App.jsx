@@ -16,17 +16,34 @@ import Error from "./Pages/Error/Error";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Users from "./Pages/Users/Users";
 import ProductControl from "./Pages/ProductControl/ProductControl";
-import ProtectPages from "./Components/ProtectPages";
+
 import Checkout from "./Pages/Checkout.jsx/Checkout";
 import Search from "./Pages/Search/Search";
 import { Toaster } from "sonner";
 
 import { useTranslation } from "react-i18next";
-import GoToTop from "./Components/GoToTop";
+
+import { useDispatch, useSelector } from "react-redux";
+import { useGetUserDataQuery } from "./Store/Actions/GetUserProducts";
+import { hydrateCart } from "./Store/Cart/CartSlice";
+import { hydrateWishlist } from "./Store/Wishlist/WishlistSlice";
+
+import GoToTop from "./Components/Layout/GoToTop";
+import ProtectPages from "./Components/Layout/ProtectPages";
 function App() {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
+  const dispatch = useDispatch();
   const isRTL = i18n.language === "ar";
+
+  
+  const { user, token } = useSelector((state) => state.auth);
+
+
+  const { data: userData, isSuccess } = useGetUserDataQuery(user?.id, {
+    skip: !token || !user?.id,
+  });
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -36,10 +53,23 @@ function App() {
   }, [pathname]);
 
   useEffect(() => {
-    // 3. Update the 'html' tag instead of 'body' for better Tailwind support
+  
     document.documentElement.dir = isRTL ? "rtl" : "ltr";
     document.documentElement.lang = i18n.language;
   }, [isRTL, i18n.language]);
+  useEffect(() => {
+    if (isSuccess && userData) {
+ 
+      if (userData.cart) {
+        dispatch(hydrateCart(userData.cart));
+      }
+
+      if (userData.wishlist) {
+        dispatch(hydrateWishlist(userData.wishlist));
+      }
+    }
+  }, [userData, isSuccess, dispatch]);
+
   return (
     <>
       <Routes>

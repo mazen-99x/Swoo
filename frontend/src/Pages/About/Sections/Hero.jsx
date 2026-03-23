@@ -1,6 +1,6 @@
 
 import { useTranslation } from "react-i18next";
-import OutlineButton from "../../../Components/OutlineButton";
+import OutlineButton from "../../../Components/Common/OutlineButton";
 
 const Hero = () => {
   const { t } = useTranslation();

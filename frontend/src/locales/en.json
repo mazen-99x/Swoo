@@ -12,6 +12,7 @@
     "redirecting_to_login": "Taking you to the login page..."
   },
   "signin": {
+    "welcome_back": "Welcome  {{name}}! You have successfully logged in.",
     "Welcome Back": "Welcome Back",
     "Login to continue": "Login to continue",
     "Email Address": "Email Address",
@@ -23,6 +24,7 @@
   },
   "profile": {
     "myProfile": "My Profile",
+    "sameAsOld": "New password cannot be the same as your current password",
     "manageSettings": "Manage your account settings and preferences",
     "userAvatar": "User Avatar",
     "orders": "Orders",
@@ -69,10 +71,14 @@
     "resultsFor": "Search results for",
     "noResultsFor": "No results found for",
     "found": "Found",
+    "noProducts": "No products found",
+    "tryDifferentKeywords": "Try adjusting your filters or use different keywords to find what you're looking for.",
+    "adjustFilters": "Try adjusting your filters or search terms",
     "products": "products",
-    "tryDifferentKeywords": "Try using different keywords or check for typos.",
     "page": "Page",
-    "of": "of"
+    "showing": "Showing",
+    "of": "of",
+    "results": "results"
   },
   "nav": {
     "Home": "Home",
@@ -86,7 +92,11 @@
     "Profile": "Profile",
     "Log Out": "Log Out",
     "Sign Up": "Sign Up",
-    "Sign In": "Sign In"
+    "Sign In": "Sign In",
+    "logoutTitle": "Logout?",
+    "logoutMessage": "Are you sure you want to log out of your account?",
+    "confirmLogout": "Yes, Logout",
+    "cancel": "Cancel"
   },
   "product": {
     "inStock": "In Stock",
@@ -95,8 +105,13 @@
     "addToCart": "Add to cart",
     "limitReached": "Limit Reached",
     "filters": "Filters",
+    "show_less": "Show Less",
+    "read_more": "Read More",
     "perPage": "per page",
     "save": "Save",
+    "deleteTitle": "Delete Product",
+    "deleteMessage": "Are you sure you want to delete this product? This action cannot be undone.",
+    "confirmDelete": "Delete Now",
     "Quick Share": "Quick Share",
     "Scan to view on mobile": "Scan to view on mobile",
     "reviews": "Reviews",
@@ -439,6 +454,7 @@
     "cleared_desc": "All items have been removed. Your shopping bag is now empty.",
     "clearMessage": "Are you sure you want to remove all items from your cart? You will have to add them again if you change your mind.",
     "clearConfirm": "Yes, empty cart",
+    "low_stock": "Only {{count}} left in stock",
     "clearedSuccess": "Cart emptied successfully"
   },
   "wishlist": {
@@ -454,10 +470,14 @@
     "cleared_desc": "All items have been removed from your saved list."
   },
   "settings": {
-    "title": "Theme Settings",
-    "mainColor": "Main Color",
-    "changeMode": "Change Mode",
-    "closeTip": "Click the gear again to close"
+    "title": "Settings",
+    "mainColor": "Theme Color",
+    "colorsCount": "colors",
+    "preferences": "preferences",
+    "changeMode": "Appearance",
+    "currentColor": "Current Color",
+    "custom": "Custom Color",
+    "closeTip": "Click outside to close"
   },
   "error404": {
     "title": "Lost Your Way?",
@@ -467,27 +487,33 @@
   },
   "users": {
     "title": "Users",
+    "password": "Password",
     "add": "Add User",
     "name": "Name",
     "email": "Email",
-    "role": "Role"
+    "deleteTitle": "Confirm Deletion",
+    "deleteMessage": "Are you sure you want to delete this user? This action cannot be undone.",
+    "confirmText": "Yes, Delete",
+    "role": "Choose Role"
   },
   "common": {
     "actions": "Actions",
     "edit": "Edit",
+    "end": "End",
+    "fetching_deals": "Getting the best deals for you...",
     "delete": "Delete",
     "shopping": "Continue Shopping",
     "browse": "or browse",
     "products": "products",
     "cancel": "cancel",
     "login": "login",
+    "Loading": "Loading",
     "save": "save",
     "uploadImage": "Upload image",
     "noImage": "No image selected",
     "error": "Something went wrong. Please try again.",
-    "loading": "Searching",
     "search": "Search...",
-    "logged_out": "Logged OUT",
+    "logged_out": "Logged Out successfully!",
     "press": "Press ESC to cancel"
   },
   "productControl": {
@@ -555,13 +581,74 @@
     "removed_from": "Removed from"
   },
   "errors": {
+    "invalid_credentials": "Email or password is incorrect.",
     "Name must be at least 4 characters": "Name must be at least 4 characters",
     "Invalid email address": "Please enter a valid email address",
+    "something_went_wrong": "Oops! We couldn't connect to the server. Please check your internet and try again.",
     "Email already exists": "This email is already registered",
     "Password strength requirement": "Must be 6+ chars with 1 Uppercase, 1 Lowercase, and 1 Number",
+    "Password is required": "Password is required",
     "Passwords do not match": "Passwords do not match"
   },
   "messages": {
-    "loginRequired": "Please login to access this feature!"
+    "loginRequired": "Please login to access this feature!",
+    "userAdded": "User created successfully!",
+    "userUpdated": "User information updated!",
+    "userDeleted": "User has been removed.",
+    "error": "Something went wrong. Please try again.",
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidName": "Name must be at least 4 characters long",
+    "invalidPassword": "Password must meet all security requirements",
+    "emailTaken": "This email is already in use",
+    "productAdded": "Product added successfully",
+    "productUpdated": "Product updated successfully",
+    "adminRestricted": "Admin Restricted",
+    "adminNoShopping": "Admin accounts cannot perform this actions "
+  },
+  "colors": {
+    "fresh_eco": "Fresh Eco",
+    "classic_blue": "Classic Blue",
+    "midnight": "Midnight",
+    "rose_punch": "Rose Punch",
+    "vivid_orange": "Vivid Orange",
+    "gold_standard": "Gold Standard",
+    "modern_violet": "Modern Violet",
+    "deep_teal": "Deep Teal",
+    "electric_pink": "Electric Pink",
+    "tropical_teal": "Tropical Teal",
+    "sky_high": "Sky High",
+    "deep_royal": "Deep Royal"
+  },
+  "from": {
+    "popular": "Popular",
+    "bestSeller": "Best Seller",
+    "newIn": "New Arrivals"
+  },
+  "categories": {
+    "beauty": "Beauty",
+    "fragrances": "Fragrances",
+    "furniture": "Furniture",
+    "groceries": "Groceries",
+    "home-decoration": "Home Decoration",
+    "kitchen-accessories": "Kitchen Accessories",
+    "laptops": "Laptops",
+    "mens-shirts": "Mens Shirts",
+    "mens-shoes": "Mens Shoes",
+    "mens-watches": "Mens Watches",
+    "mobile-accessories": "Mobile Accessories",
+    "motorcycle": "Motorcycle",
+    "skin-care": "Skin Care",
+    "smartphones": "Smartphones",
+    "sports-accessories": "Sports Accessories",
+    "sunglasses": "Sunglasses",
+    "tablets": "Tablets",
+    "tops": "Tops",
+    "vehicle": "Vehicle",
+    "womens-bags": "Womens Bags",
+    "womens-dresses": "Womens Dresses",
+    "womens-jewellery": "Womens Jewellery",
+    "womens-shoes": "Womens Shoes",
+    "womens-watches": "Womens Watches"
   }
 }

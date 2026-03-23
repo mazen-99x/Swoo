@@ -5,17 +5,17 @@ export const userApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/" }),
   tagTypes: ["UserCart", "UserWishlist"],
   endpoints: (builder) => ({
-    // Update Cart: Only sends the new cart array to the specific user ID
+
     updateCart: builder.mutation({
       query: ({ userId, cartItems }) => ({
         url: `users/${userId}`,
         method: "PATCH",
-        body: { cart: cartItems }, // json-server will only update the "cart" field
+        body: { cart: cartItems }, 
       }),
       invalidatesTags: ["UserCart"],
     }),
 
-    // Update Wishlist: Only sends the new wishlist array
+
     updateWishlist: builder.mutation({
       query: ({ userId, wishlistItems }) => ({
         url: `users/${userId}`,
@@ -25,7 +25,7 @@ export const userApi = createApi({
       invalidatesTags: ["UserWishlist"],
     }),
 
-    // Get specific user data (including their cart/wishlist)
+    
     getUserData: builder.query({
       query: (userId) => `users/${userId}`,
       providesTags: ["UserCart", "UserWishlist"],

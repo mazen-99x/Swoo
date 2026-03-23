@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
-import OutlineButton from "../../Components/OutlineButton";
+import OutlineButton from "../../Components/Common/OutlineButton";
 
 const Error = () => {
   const { t } = useTranslation();
@@ -21,7 +21,9 @@ const Error = () => {
         </p>
 
         <Link to="/">
-          <OutlineButton className="mt-8 mx-auto block px-6">{t("error404.goHome")}</OutlineButton>
+          <OutlineButton className="mt-8 mx-auto block px-6">
+            {t("error404.goHome")}
+          </OutlineButton>
         </Link>
 
         <p className="mt-8 text-gray-500 dark:text-gray-400 text-sm">

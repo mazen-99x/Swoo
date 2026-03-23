@@ -3,7 +3,7 @@ import React from "react";
 const PriceSection = ({ product, translate }) => {
   return (
     <>
-      <div className="hidden md:block mb-6 p-4 bg-linear-to-r from-(--gray-color) to-(--main-color) dark:from-(--dark-secondary-color) dark:to-(--main-color) rounded-xl">
+      <div className="hidden md:block mb-6 p-4 bg-linear-to-r from-(--main-color) to-(--main-color-pluse)  rounded-xl">
         <div className="flex items-center gap-4">
           <div>
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">

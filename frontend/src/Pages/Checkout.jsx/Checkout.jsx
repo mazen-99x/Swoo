@@ -1,12 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import OutlineButton from "../../Components/OutlineButton";
-import FormInput from "../../Components/FormInput";
+
 import { useSelector } from "react-redux";
 
-import LoadingPage from "../../Components/LoadingPage";
 import { Link } from "react-router";
 import { useGetProductsByIdsQuery } from "../../Store/Actions/GetProductsId";
+import OutlineButton from "../../Components/Common/OutlineButton";
+import FormInput from "../../Components/Common/FormInput";
+import LoadingPage from "../../Components/Common/LoadingPage";
 const Checkout = () => {
   const { t } = useTranslation();
   const slugify = (text) =>
@@ -165,7 +166,7 @@ const Checkout = () => {
               </div>
 
               {/* Product */}
-              <div className="flex flex-nowrap overflow-x-auto gap-4 pb-4 scrollbar-hide">
+              <div className="flex flex-nowrap overflow-x-auto gap-4 pb-4 scrollbar-thin">
                 {products?.map((product) => {
                   const quantity = items[product.id] || 0;
                   const itemTotal = Number(

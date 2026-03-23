@@ -1,213 +1,52 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "react-router";
 import { FaFilter } from "react-icons/fa";
+import { HiOutlineSearchCircle } from "react-icons/hi";
 
+// Components
 import FilterPanel from "./FilterPanel";
-import OutlineButton from "../../Components/OutlineButton";
+
 import ViewModeToggle from "./ViewToggle";
 import DisplayDropdown from "./DisplayOptions";
-import Product from "../../Components/Product/Product";
+import Product from "../../Components/Product/Product"
+
+
+import OutlineButton from "../../Components/Common/OutlineButton";
+// Hooks
+import UseProducts from "../../Hooks/UseProducts";
 import ProductSkeleton from "../../Components/Skeletons/ProductSkeleton";
 
-import UseGetProducts from "../../Hooks/UseGetProducts";
-import { useTranslation } from "react-i18next";
-import i18n from "../../i18n";
-// keys to use in localStorage to save user filter chooses
-const FILTERS_KEY = "selectedFilters";
-const PAGE_CONFIG_KEY = "pageSizePreference";
-const PAGE_SIZES = [8, 12, 16, 24];
-
 const Products = () => {
-  const { t } = useTranslation();
-  const isRtl = i18n.language === "ar";
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [priceRange, setPriceRange] = useState([0, 50000]);
+  const {
+    products: paginatedProducts,
+    allFilteredProducts: filteredProducts,
+    isLoading: isWorking,
+    currentPage,
+    totalPages,
+    itemsPerPage,
+    visiblePages,
+    selectedCategories,
+    rating,
+    priceRange,
+    viewMode,
+    isFilterOpen,
+    isRtl,
+    setIsFilterOpen,
+    setViewMode,
+    setPriceRange,
+    handlePageChange,
+    handlePageSizeChange,
+    handleCategoryChange,
+    handleRatingChange,
+    handleClearFilters,
+    setRating,
+    t,
+  } = UseProducts();
 
-  // --- 1. GET STATES FROM URL TO STILL BE SAVE EVEN USER GO TO OTHER PAGES ---
-  const categoryParam = searchParams.get("category");
-  const ratingParam = searchParams.get("rating");
-  const currentPage = parseInt(searchParams.get("page") || "1");
-
-  // Size priority: URL -> LocalStorage -> Default (8)
-  const itemsPerPage = parseInt(
-    searchParams.get("size") ||
-      localStorage.getItem(PAGE_CONFIG_KEY) ||
-      PAGE_SIZES[0],
-  );
-
-  const [rating, setRating] = useState(
-    ratingParam ? Number(ratingParam) : null,
-  );
-  const [viewMode, setViewMode] = useState(
-    () => localStorage.getItem("viewMode") || "grid",
-  );
-
-  const selectedCategories = useMemo(
-    () => (categoryParam ? categoryParam.split(",") : []),
-    [categoryParam],
-  );
-
-  // --- 2. API DATA ---
-  const { products, isLoading, isFetching } =
-    UseGetProducts(selectedCategories);
-  const isWorking = isFetching || isLoading;
-
-  // --- 3. PERSISTENCE HELPERS ---
-
-  // Updates URL and handles side effects like resetting page to 1
-  const updateQueryParams = useCallback(
-    (updates) => {
-      const params = new URLSearchParams(searchParams);
-
-      // Apply all updates to URL
-      Object.keys(updates).forEach((key) => {
-        const value = updates[key];
-
-        if (
-          value === null ||
-          value === "" ||
-          (key === "page" && String(value) === "1")
-        ) {
-          params.delete(key);
-        } else {
-          params.set(key, value);
-        }
-      });
-
-      // logic: If we are changing filters/size, we MUST go back to page 1
-      if (
-        !updates.page &&
-        (updates.category !== undefined ||
-          updates.rating !== undefined ||
-          updates.size !== undefined)
-      ) {
-        params.delete("page");
-      }
-
-      setSearchParams(params);
-    },
-    [searchParams, setSearchParams],
-  );
-
-  // --- 4. EVENT HANDLERS ---
-
-  const handlePageChange = (newPage) => {
-    const pageVal =
-      typeof newPage === "function" ? newPage(currentPage) : newPage;
-    updateQueryParams({ page: pageVal });
-  };
-
-  const handlePageSizeChange = (newSize) => {
-    localStorage.setItem(PAGE_CONFIG_KEY, newSize);
-    updateQueryParams({ size: newSize });
-  };
-
-  const handleCategoryChange = (slug) => {
-    let updated = selectedCategories.includes(slug)
-      ? selectedCategories.filter((c) => c !== slug)
-      : [...selectedCategories, slug];
-
-    const catString = updated.join(",");
-    updateQueryParams({ category: catString });
-
-    localStorage.setItem(
-      FILTERS_KEY,
-      JSON.stringify({ categories: updated, rating }),
-    );
-  };
-
-  const handleRatingChange = (value) => {
-    setRating(value);
-    updateQueryParams({ rating: value });
-    localStorage.setItem(
-      FILTERS_KEY,
-      JSON.stringify({ categories: selectedCategories, rating: value }),
-    );
-  };
-
-  const handleClearFilters = () => {
-    setSearchParams({});
-    setRating(null);
-    setPriceRange([0, 50000]);
-    localStorage.removeItem(FILTERS_KEY);
-  };
-
-  // --- 5. DATA PROCESSING (Filtering & Pagination) ---
-
-  const filteredProducts = useMemo(() => {
-    return (
-      selectedCategories.length
-        ? products?.filter((p) => selectedCategories.includes(p.category))
-        : products
-    )?.filter(
-      (p) =>
-        p.price >= priceRange[0] &&
-        p.price <= priceRange[1] &&
-        (rating ? p.rating >= rating : true),
-    );
-  }, [products, selectedCategories, priceRange, rating]);
-
-  const paginatedProducts = useMemo(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    return filteredProducts?.slice(startIndex, startIndex + itemsPerPage);
-  }, [filteredProducts, currentPage, itemsPerPage]);
-
-  const totalPages = Math.ceil((filteredProducts?.length || 0) / itemsPerPage);
-  const getVisiblePages = () => {
-    const pages = [];
-
-    const maxVisible = 5;
-
-    if (totalPages <= maxVisible) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
-    }
-
-    const start = Math.max(2, currentPage - 1);
-    const end = Math.min(totalPages - 1, currentPage + 1);
-
-    pages.push(1); // always show first
-
-    for (let i = start; i <= end; i++) {
-      pages.push(i);
-    }
-
-    if (!pages.includes(totalPages)) {
-      pages.push(totalPages); // always show last
-    }
-
-    return pages;
-  };
-  // Persistence for View Mode
-  useEffect(() => {
-    localStorage.setItem("viewMode", viewMode);
-  }, [viewMode]);
-
-  // Restore filters from localStorage on first mount ONLY
-  useEffect(() => {
-    const saved = localStorage.getItem(FILTERS_KEY);
-    if (saved && !categoryParam && !ratingParam) {
-      const { categories, rating: savedRating } = JSON.parse(saved);
-      updateQueryParams({
-        category: categories.join(","),
-        rating: savedRating,
-      });
-      if (savedRating) setRating(savedRating);
-    }
-  }, [categoryParam, ratingParam, updateQueryParams]);
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  }, [currentPage]);
   return (
-    <section className="min-h-screen my-6">
-      <div className="lg:grid lg:grid-cols-[16rem_1fr] gap-6">
-        {/* Desktop Filter */}
+    <section className="min-h-screen my-6 px-4 sm:px-6 lg:px-8">
+      <div className="lg:grid lg:grid-cols-[18rem_1fr] gap-8">
+        {/* 1. Desktop Sidebar */}
         <aside className="hidden lg:block">
-          <div className="rounded-lg shadow-md h-fit overflow-y-auto">
+          <div className="sticky top-24 bg-white dark:bg-(--dark-alt-color) rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
             <FilterPanel
               selectedCategories={selectedCategories}
               onCategoryChange={handleCategoryChange}
@@ -223,113 +62,129 @@ const Products = () => {
           </div>
         </aside>
 
+        {/* 2. Main Content */}
         <main>
-          {/* Top Controls */}
-          <div
-            className="bg-(--white-color) dark:bg-(--dark-alt-color) rounded-lg shadow-md p-4 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4"
-            dir={isRtl ? "rtl" : "ltr"}
-          >
-            <OutlineButton
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="lg:hidden flex items-center gap-2"
-            >
-              {/* Icon direction usually stays the same for filters, but labels translate */}
-              <FaFilter /> <span>{t("product.filters")}</span>
-            </OutlineButton>
+          {/* --- Top Controls Wrapper --- */}
+          <div className="flex flex-col gap-4 mb-6">
+            {/* Results Counter & Mobile Toggle Row */}
+            <div className="flex items-center justify-between px-2">
+              <div className="text-sm text-gray-500 dark:text-gray-400">
+                {t("search.showing")}{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  {paginatedProducts?.length || 0}
+                </span>{" "}
+                {t("search.of")}{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  {filteredProducts?.length || 0}
+                </span>{" "}
+                {t("search.results")}
+              </div>
 
-            {/* Changed ml-auto to ms-auto (Logical Property) */}
-            <div className="flex items-center gap-4 ms-auto">
-              <div className="hidden lg:flex items-center gap-4">
-                <DisplayDropdown
-                  pageSize={itemsPerPage}
-                  setPageSize={handlePageSizeChange}
-                  setPage={handlePageChange}
-                />
-                <ViewModeToggle
-                  viewMode={viewMode}
-                  handleViewModeChange={setViewMode}
-                />
+              <OutlineButton
+                onClick={() => setIsFilterOpen(true)}
+                className="lg:hidden flex items-center gap-2 py-2 px-4 rounded-xl text-sm"
+              >
+                <FaFilter />
+                <span>{t("product.filters")}</span>
+              </OutlineButton>
+            </div>
+
+            {/* Toolbar (Page Size & View Mode) */}
+            <div
+              className="bg-white dark:bg-(--dark-alt-color) rounded-2xl shadow-sm p-3 flex items-center justify-between border border-gray-100 dark:border-gray-800"
+              dir={isRtl ? "rtl" : "ltr"}
+            >
+              <div className="flex items-center gap-4 ms-auto">
+                <div className="hidden sm:flex items-center gap-2">
+                  <DisplayDropdown
+                    pageSize={itemsPerPage}
+                    setPageSize={handlePageSizeChange}
+                    setPage={handlePageChange}
+                  />
+                  <div className="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-2" />
+                  <ViewModeToggle
+                    viewMode={viewMode}
+                    handleViewModeChange={setViewMode}
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Products Grid */}
+          {/* --- Products Display --- */}
           <div
             className={`grid gap-4 mb-8 ${
               viewMode === "grid"
                 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-                : "grid-cols-1 sm:grid-cols-2"
+                : "grid-cols-1"
             }`}
           >
             {isWorking ? (
-              // 1. If loading, show skeletons
-              Array(8)
+              Array(itemsPerPage || 8)
                 .fill(0)
-                .map((_, i) => <ProductSkeleton key={i} />)
+                .map((_, i) => <ProductSkeleton key={i} viewMode={viewMode} />)
             ) : paginatedProducts?.length > 0 ? (
-              // 2. If not loading AND we have products, show them
               paginatedProducts.map((product) => (
-                <Product key={product.id} product={product} />
+                <Product
+                  key={product.id}
+                  product={product}
+                  viewMode={viewMode}
+                />
               ))
             ) : (
-              // 3. If not loading AND length is 0, show "No products"
-              <div className="col-span-full flex flex-col items-center justify-center py-10">
-                <div className="text-6xl mb-4">🔍</div>
-                <p className="text-lg font-medium mb-1">No products found</p>
-                <p className="text-sm text-gray-500">
-                  Try adjusting your filters
+              /* Empty State */
+              <div className="col-span-full flex flex-col items-center justify-center py-24 px-6 text-center bg-gray-50 dark:bg-gray-900/30 rounded-3xl border-2 border-dashed border-gray-200 dark:border-gray-800">
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-(--main-color) blur-3xl opacity-10 rounded-full" />
+                  <HiOutlineSearchCircle className="text-9xl text-gray-300 dark:text-gray-700 relative z-10" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+                  {t("search.noProducts")}
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 max-w-sm mb-8">
+                  {t("search.adjustFilters")}
                 </p>
+                <OutlineButton
+                  onClick={handleClearFilters}
+                  className="rounded-2xl px-10 py-3 font-semibold"
+                >
+                  {t("filterPanel.clearallfilters")}
+                </OutlineButton>
               </div>
             )}
           </div>
 
-          {/* Pagination Controls */}
+          {/* --- Pagination --- */}
           {totalPages > 1 && (
-            <div className="flex justify-center items-center gap-3 mt-8 flex-wrap">
-              {/* Prev */}
+            <div className="flex justify-center items-center gap-3 mt-12 mb-8">
               <OutlineButton
                 disabled={currentPage === 1}
                 onClick={() => handlePageChange(currentPage - 1)}
-                className="px-4 py-2"
+                className="px-5 py-2.5 rounded-xl disabled:opacity-50"
               >
                 {t("product.preview")}
               </OutlineButton>
 
-              <div className="sm:hidden px-4 py-2 rounded-xl bg-(--main-color) text-white font-medium shadow">
-                {currentPage} / {totalPages}
+              <div className="hidden sm:flex items-center gap-2">
+                {visiblePages.map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`min-w-11.25 h-11.25 rounded-xl font-bold transition-all cursor-pointer ${
+                      currentPage === page
+                        ? "bg-(--main-color) text-white shadow-lg shadow-(--main-color)/20 scale-105"
+                        : "bg-gray-100 dark:bg-gray-800 hover:text-(--white-color) hover:bg-(--main-color)/80"
+                    }`}
+                  >
+                    {page === totalPages && page > 5 ? t("common.end") : page}
+                  </button>
+                ))}
               </div>
 
-              <div className="hidden sm:flex gap-2">
-                {getVisiblePages().map((page) => {
-                  let label = page;
-
-                  if (page === totalPages) label = "End";
-
-                  return (
-                    <button
-                      key={page}
-                      onClick={() => handlePageChange(page)}
-                      className={`
-              min-w-11 h-10 px-3 rounded-xl cursor-pointer font-medium 
-              transition-all duration-200 
-              ${
-                currentPage === page
-                  ? "bg-(--main-color) text-white shadow-md shadow-(--main-color)/30 scale-105"
-                  : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-(--main-color) hover:text-white hover:scale-105"
-              }
-            `}
-                    >
-                      {label}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Next */}
               <OutlineButton
                 disabled={currentPage === totalPages}
                 onClick={() => handlePageChange(currentPage + 1)}
-                className="px-4 py-2"
+                className="px-5 py-2.5 rounded-xl disabled:opacity-50"
               >
                 {t("product.next")}
               </OutlineButton>
@@ -338,17 +193,26 @@ const Products = () => {
         </main>
       </div>
 
-      {/* Mobile Filter Panel Overlay */}
+      {/* --- Mobile Sidebar Overlay --- */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${isFilterOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 z-100 lg:hidden transition-all duration-500 ${isFilterOpen ? "visible" : "invisible"}`}
       >
         <div
-          className="absolute inset-0 bg-black/60"
+          className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-500 ${isFilterOpen ? "opacity-100" : "opacity-0"}`}
           onClick={() => setIsFilterOpen(false)}
         />
         <div
-          className={`absolute left-0 top-0 h-full w-80 dark:bg-(--dark-secondary-color) bg-(--gray-color) shadow-xl transform transition-transform duration-300 ${isFilterOpen ? "translate-x-0" : "-translate-x-full"}`}
+          className={`absolute left-0 top-0 h-full w-75 bg-white dark:bg-(--dark-secondary-color) shadow-2xl transition-transform duration-500 ease-out p-6 ${isFilterOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
+          <div className="flex justify-between items-center mb-6 border-b pb-4 dark:border-gray-800">
+            <h2 className="text-xl font-bold">{t("product.filters")}</h2>
+            <button
+              onClick={() => setIsFilterOpen(false)}
+              className="text-3xl font-light hover:text-(--main-color)"
+            >
+              &times;
+            </button>
+          </div>
           <FilterPanel
             selectedCategories={selectedCategories}
             onCategoryChange={handleCategoryChange}
@@ -360,6 +224,7 @@ const Products = () => {
             setPriceRange={setPriceRange}
             rating={rating}
             setRating={setRating}
+            mobile
           />
         </div>
       </div>

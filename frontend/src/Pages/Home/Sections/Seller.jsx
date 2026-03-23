@@ -18,12 +18,12 @@ const Seller = () => {
     >
       <ul className="flex justify-between items-center flex-wrap gap-10">
         <li>
-          <div className="flex gap-8 max-[400px]:justify-center">
+          <div className="flex gap-8 max-100:justify-center">
             {filters.map((key) => (
               <button
                 key={key}
                 onClick={() => setActive(key)}
-                className={`font-semibold cursor-pointer ${active === key ? "text-(--main-color)" : "dark:text-gray-300 text-gray-600"}`}
+                className={`font-semibold cursor-pointer duration-300 hover:text-(--main-color) ${active === key ? "text-(--main-color)" : "dark:text-gray-300 text-gray-600"}`}
               >
                 {t(`home.seller.filters.${key}`)}
               </button>
